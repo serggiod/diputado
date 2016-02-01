@@ -1,16 +1,24 @@
 angular
 	.module('diputado')
-	.controller('diputado',function($scope,$location){
+	.controller('diputado',function($scope,$location,$http,$session,$local,$routeParams,$ui){
+		
+		$scope.paramDip = $routeParams.diputado;
+		
+		$scope.init = function(){
+			$http.get('models/diputado.php/'+$scope.paramDip)
+				.success(function(json){
+					$session.set('diputado',json);
+					$scope.diputadoInit();
+				})
+				.error(function(){
+					$location.path('/diputados');
+				});
+		};
 
-		$scope.fotografia = 'indefinido.jpg';
-		$scope.nombre     = 'Nombre del Diputado';
-		$scope.apellido   = 'Apellido del Diputado';
-		$scope.mandato    = '0000-0000';
+		$scope.diputadoInit = function(){
+			$ui.init();
+			
+		};
 
-		console.log($scope.fotografia);
-		console.log($scope.nombre);
-		console.log($scope.apellido);
-		console.log($scope.mandato);
-
-		$('#cargando').hide();
+		$scope.init();
 	});

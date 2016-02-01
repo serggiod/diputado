@@ -1,14 +1,18 @@
 angular
-	.module('diputado',['ngRoute'])
+	.module('diputado',['ngRoute','ngSession','ngLocal'])
 	.config(function($routeProvider){
 	    $routeProvider
-		    .when('/',{
+	    	.when('/',{
+	    		templateUrl:'views/diputados.html',
+	    		controller:'diputados'
+	    	})
+	    	.when('/diputados',{
+	    		templateUrl:'views/diputados.html',
+	    		controller:'diputados'
+	    	})
+		    .when('/:diputado',{
 		        templateUrl:'views/diputado.html',
 		        controller:'diputado'
 		    })
-		    .when('/diputado',{
-		        templateUrl:'views/diputado.html',
-		        controller:'diputado'
-		    })
-		    .otherwise({redirectTo:'/'});
+		    .otherwise({redirectTo:'/diputados'});
 	});

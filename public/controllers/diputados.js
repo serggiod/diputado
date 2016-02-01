@@ -1,0 +1,9 @@
+angular
+	.module('diputado')
+	.controller('diputados',function($http,$ui,$local){
+		$http.get('/web/institucion/diputadosweb')
+			.success(function(html){
+				$ui.init();
+				$('#diputados').html(html);
+			});
+	});
