@@ -1,1 +1,43 @@
-<div id="diputados"></div>
+<table class="table bordered striped">
+	<tr>
+		<td></td>
+		<td>
+			<strong>Fotograía</strong>
+		</td>
+		<td>
+			<strong>Diputado</strong>
+		</td>
+		<td>
+			<strong>Bloque</strong>
+		</td>
+	</tr>
+	<tr ng-repeat="d in diputados">
+		<td>
+		</td>
+		<td>
+			<a href="#/diputado/{{d.link}}">
+				<img src="/public/img/diputados/{{d.fotografia}}" width="100">
+			</a>
+		</td>
+		<td>
+			<strong>
+				<a href="#/diputado/{{d.link}}">
+					{{d.nombre}}
+				</a>
+			</strong>
+			<br>
+			<strong>
+				{{d.mandato}}
+			</strong>
+			<br>
+			{{d.email}}
+		</td>
+		<td>
+			<center>
+				<img src="/img/bloques/{{d.logo}}" width="50">
+				<br/>
+				{{d.bloque}}<br>
+			</center>
+		</td>
+	</tr>
+</table>
