@@ -10,7 +10,7 @@ angular
 	    		templateUrl:'views/diputados.html',
 	    		controller:'diputados'
 	    	})
-		    .when('/:diputado',{
+		    .when('/:uriname',{
 		        templateUrl:'views/diputado.html',
 		        controller:'diputado'
 		    })

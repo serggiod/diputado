@@ -22,9 +22,7 @@
                 margin-left:20px;
             }
         </style>
-
-        
-    
+     
     </head>
     <body class="body">
 
@@ -125,29 +123,40 @@
                 </ul>
 
             </div>
-
             <div panel-left>
 
-                <!--
-               <div class="card-image blue">
-                    <img id="diputado-fotografia" class="responsive-img"/>
+                <div id="sidecard" class="card grey darken-2 white-text" style="display:none; overflow:hidden;">
+                    <div class="card-image blue">
+                        <img  id="sideimg"  class="responsive-img"/>
+                        <span id="sidename" class="card-title green"></span>
+                    </div>
+                    <div class="card-action grey darken-1" id="sideperiodo"></div>
+                    <div class="card-action grey darken-2">
+                        <center>
+                            <img id="sidebloimg" class="circle" style="width:32px"/>
+                            <br/>
+                            <span id="sidebloname"></span>
+                        </center>
+                    </div>
+                    <div class="card-action grey darken-2" id="sideemail"></div>
+                    <div class="card-action grey darken-2" id="sidetel"></div>
+                    <div class="card-action grey darken-2" id="sideweb"></div>
+                    <div class="card-action grey darken-2" id="sideface"></div>
+                    <div class="card-action grey darken-2" id="sidetwit"></div>
+                    <div class="card-action grey darken-2" id="sideyt"></div>
                 </div>
-                <div class="card-action">
-                    <span class="white-text">{{nombre}} {{apellido}}</span>
+
+                <div id="sidecomisiones" class="card grey darken-2 white-text" style="display:none; overflow:hidden;">
+                    <div class="card-title" style="margin:15px;">Comisiones que Integra</div>
+                    <div class="card-content" id="sidecomisioneslista">
+                        
+                    </div>
                 </div>
-                <div class="card-content">
-                    <span class="white-text">Mandato: {{mandato}}</span>
-                </div>
-                <div class="card-action">
-                    <paper-button toggles class="white-text">Email: {{email}}</paper-button>
-                    <paper-button toggles class="white-text">Tel&eacute;fono: {{telefono}}</paper-button>
-                    <paper-button toggles class="white-text">Bloque:{{bloque}}</paper-button>
-                    <paper-button toggles class="white-text">Pagina Web: {{web}}</paper-button>
-                    <paper-button toggles class="white-text">Facebook: {{face}}</paper-button>
-                    <paper-button toggles class="white-text">Twitter: {{twitter}}</paper-button>
-                    <paper-button toggles class="white-text">Youtube: {{youtube}}</paper-button> 
-                </div>
-                -->
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
             </div>
 
             <div panel-main>

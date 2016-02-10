@@ -1,4 +1,4 @@
-<table class="table bordered striped">
+<table class="table bordered striped centered">
 	<tr>
 		<td></td>
 		<td>
@@ -15,13 +15,13 @@
 		<td>
 		</td>
 		<td>
-			<a href="#/diputado/{{d.link}}">
-				<img src="/public/img/diputados/{{d.fotografia}}" width="100">
+			<a href="#/{{d.uriname}}">
+				<img src="/imgcdn/diputados/{{d.fotografia}}" width="100">
 			</a>
 		</td>
 		<td>
 			<strong>
-				<a href="#/diputado/{{d.link}}">
+				<a href="#/{{d.uriname}}">
 					{{d.nombre}}
 				</a>
 			</strong>
@@ -33,11 +33,9 @@
 			{{d.email}}
 		</td>
 		<td>
-			<center>
-				<img src="/img/bloques/{{d.logo}}" width="50">
-				<br/>
-				{{d.bloque}}<br>
-			</center>
+			<img src="/imgcdn/bloques/{{d.logo}}" width="50">
+			<br/>
+			{{d.bloque}}<br>
 		</td>
 	</tr>
 </table>
