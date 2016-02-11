@@ -11,9 +11,9 @@ angular
 					.success(function(json){
 						if(json.result){
 							$scope.diputado = json;
-							
-							console.log($scope.diputado);
 
+							$session.set('diputado',json);
+							
 							$('#sideimg')
 								.attr('src','/imgcdn/diputados/'+$scope.diputado.rows.fotografia);
 							
@@ -32,18 +32,15 @@ angular
 							$('#sidebloname')
 								.html($scope.diputado.rows.bloque);
 
-
 							if($scope.diputado.rows.telefono!=null){
 								$('#sidetel')
 									.html(''+$scope.diputado.rows.telefono+'');
 							}
 
-
 							if($scope.diputado.rows.paginaweb!=null){
 								$('#sideweb')
 									.html($scope.diputado.rows.paginaweb);
 							}
-
 
 							if($scope.diputado.rows.facebook!=null){
 								$('#sideface')
@@ -55,11 +52,25 @@ angular
 									.html($scope.diputado.rows.yotutube);								
 							}
 
+							ulcomisiones = $('#ulcomisiones');
+							for(i in $scope.diputado.rows.comisiones){
+								ulcomisiones.append('<li>'+$scope.diputado.rows.comisiones[i].cargo+' de '+$scope.diputado.rows.comisiones[i].comision+'</li>')
+							}
+
 							$('#sidecard')
 								.css('display','block');
 
 							$('#sidecomisiones')
-								.css('display','block');							
+								.css('display','block');
+
+							$('#sidecontacto')
+								.css('display','block');
+
+							$('#btnfloating1')
+								.css('display','block');
+
+							$('#btnfloating2')
+								.css('display','block');
 
 							$ui.init();
 

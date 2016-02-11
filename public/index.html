@@ -62,6 +62,10 @@
         <script src="controllers/actions.js"></script>
         <script src="controllers/diputados.js"></script>
         <script src="controllers/diputado.js"></script>
+        <script src="controllers/proyectos.js"></script>
+        <script src="controllers/prensa.js"></script>
+        <script src="controllers/fotografias.js"></script>
+        <script src="controllers/videos.js"></script>
 
 
         <panel-left-main class="row panel" classmain="grey lighten-2">
@@ -138,6 +142,16 @@
                             <span id="sidebloname"></span>
                         </center>
                     </div>
+                </div>
+
+                <div id="sidecomisiones" class="card grey darken-2 white-text" style="display:none; overflow:hidden;">
+                    <div class="card-title" style="margin:15px;">Comisiones que Integra</div>
+                    <div class="card-content">
+                        <ul id="ulcomisiones"></ul>
+                    </div>
+                </div>
+
+                <div id="sidecontacto" class="card grey darken-2 white-text" style="display:none; overflow:hidden;">
                     <div class="card-action grey darken-2" id="sideemail"></div>
                     <div class="card-action grey darken-2" id="sidetel"></div>
                     <div class="card-action grey darken-2" id="sideweb"></div>
@@ -146,12 +160,7 @@
                     <div class="card-action grey darken-2" id="sideyt"></div>
                 </div>
 
-                <div id="sidecomisiones" class="card grey darken-2 white-text" style="display:none; overflow:hidden;">
-                    <div class="card-title" style="margin:15px;">Comisiones que Integra</div>
-                    <div class="card-content" id="sidecomisioneslista">
-                        
-                    </div>
-                </div>
+
 
                 <br/>
                 <br/>
@@ -160,6 +169,92 @@
             </div>
 
             <div panel-main>
+                
+                <div id="btnfloating1" class="fixed-action-btn vertical click-to-toggle  hide-on-med-and-up" style="bottom: 45px; right: 24px; display:none;">
+                    <a class="btn-floating btn-large red">
+                        <i class="large mdi-navigation-menu"></i>
+                    </a>
+                    <ul ng-controller="actions">
+                        
+                        <li>
+                            <a class="btn-floating red darken-1" ng-click="goProyectos()">
+                                <i class="material-icons">
+                                    library_books
+                                </i>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a class="btn-floating red darken-1" ng-click="goPrensa()">
+                                <i class="material-icons">
+                                    settings_voice
+                                </i>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a class="btn-floating red darken-1" ng-click="goFotografias()">
+                                <i class="material-icons">
+                                    recent_actors
+                                </i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="btn-floating red darken-1" ng-click="goVideos()">
+                                <i class="material-icons">
+                                    theaters
+                                </i>
+                            </a>
+                        </li>
+
+                    </ul>
+
+
+                </div>
+
+                <div id="btnfloating2" class="fixed-action-btn horizontal click-to-toggle hide-on-small-only" style="top: 85px; right: 24px; display:none;">
+                    <a class="btn-floating btn-large red">
+                        <i class="large mdi-navigation-menu"></i>
+                    </a>
+                    <ul ng-controller="actions">
+                        
+                        <li>
+                            <a class="btn-floating red darken-1" ng-click="goProyectos()">
+                                <i class="material-icons">
+                                    library_books
+                                </i>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a class="btn-floating red darken-1" ng-click="goPrensa()">
+                                <i class="material-icons">
+                                    settings_voice
+                                </i>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a class="btn-floating red darken-1" ng-click="goFotografias()">
+                                <i class="material-icons">
+                                    recent_actors
+                                </i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="btn-floating red darken-1" ng-click="goVideos()">
+                                <i class="material-icons">
+                                    theaters
+                                </i>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
                 <div ng-view></div> 
             </div>
 
@@ -167,34 +262,3 @@
 
     </body>
 </html>
-
-<!--
-Main Toolbar
-<paper-toolbar class="header blue darken-5 z-depth-5">
-    <paper-icon-button icon="menu"    paper-drawer-toggle></paper-icon-button>
-    <paper-icon-button icon="refresh" onclick="window.location.reload()"></paper-icon-button>
-    <paper-button class="right"       onclick="window.location.href='http://www.legislaturajujuy.gov.ar'">Legislatura de Jujuy</paper-button>
-    <paper-button class="right"       onclick="window.location.href='/diputado/'">Todos los Diputados</paper-button>
-</paper-toolbar>
-
-Parallax
-<div class="failParallax" class="z-depth-4" ng-controller="diputado">
-    <div class="failParallaxCover">
-        <h2 class="center white-text">
-            <strong class="">
-                {{diputado.nombre}}    
-            </strong>                        
-        </h2>
-    </div>
-</div>
-
-Fab Icon
-<div class="siteFab" ng-controller="actions">
-    <paper-fab icon="add" ng-click="fabAction()"></paper-fab>
-    <paper-fab icon="home" class="fabMargind blue" ng-show="siteFab" ng-click="goInicio()"></paper-fab>
-    <paper-fab icon="info" class="fabMargind blue" ng-show="siteFab" ng-click="goProyecto()"></paper-fab>
-    <paper-fab icon="speaker-notes" class="fabMargind blue" ng-show="siteFab" ng-click="goPrensa()"></paper-fab>
-    <paper-fab icon="perm-media" class="fabMargind blue" ng-show="siteFab" ng-click="goFotografias()"></paper-fab>
-    <paper-fab icon="theaters" class="fabMargind blue" ng-show="siteFab" ng-click="goVideos()"></paper-fab>
-</div>
--->

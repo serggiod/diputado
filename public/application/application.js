@@ -10,6 +10,22 @@ angular
 	    		templateUrl:'views/diputados.html',
 	    		controller:'diputados'
 	    	})
+	    	.when('/:uriname/proyectos',{
+		        templateUrl:'views/proyectos.html',
+		        controller:'proyectos'
+		    })
+		    .when('/:uriname/prensa',{
+		        templateUrl:'views/prensa.html',
+		        controller:'prensa'
+		    })
+		    .when('/:uriname/fotografias',{
+		        templateUrl:'views/fotografias.html',
+		        controller:'fotografias'
+		    })
+		    .when('/:uriname/videos',{
+		        templateUrl:'views/videos.html',
+		        controller:'videos'
+		    })
 		    .when('/:uriname',{
 		        templateUrl:'views/diputado.html',
 		        controller:'diputado'
