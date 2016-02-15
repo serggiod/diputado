@@ -4,9 +4,12 @@ angular
 		
 		$scope.init = function(){
 
-			$scope.diputado = {uriname:$routeParams.uriname};
+			$ui.init();
 
-			if(typeof($scope.diputado.uriname)!='undefined'){
+			//$scope.diputado = {uriname:$routeParams.uriname};
+
+			//if(typeof($scope.diputado.uriname)!='undefined'){
+				/*
 				$http.get('/rest/diputados.php/diputado/'+$scope.diputado.uriname)
 					.success(function(json){
 						if(json.result){
@@ -79,7 +82,8 @@ angular
 					.error(function(){
 						$location.path('/diputados');
 					});
-			}
+					*/
+			//}
 		};
 
 		$scope.init();
