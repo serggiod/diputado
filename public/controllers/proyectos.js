@@ -4,6 +4,29 @@ angular
 		
 		$scope.init = function(){
 			$ui.init();
+			$scope.tipo = 'Cofirmados';
+			$scope.getProyectos();
+		};
+
+		$scope.cambiarTipo = function(tipo){
+			$scope.tipo = tipo;
+			$scope.getProyectos();
+		};
+
+		$scope.getProyectos = function(){
+			var diputado = $session.get('diputado');
+			var uriname  = diputado.uriname;
+			var uri      = '/rest/proyectos.php/proyectos/'+uriname+'/'+$scope.tipo.toLowerCase();
+			$http.get(uri)
+				.success(function(json){
+					if(json.result){
+						$scope.proyectos = json.rows;
+						console.log($scope.proyectos);
+					}
+				})
+				.error(function(){
+					$location.path('#/'+uriname)
+				});
 		};
 
 		$scope.init();

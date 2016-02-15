@@ -1,1 +1,100 @@
-Hola estas en proyectos.
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div>
+	<h3 class="blue-text text-darken-4">
+		<strong>
+			Poyectos
+		</strong>
+		<small class="grey-text text-darken-2">
+			{{tipo}}
+		</small>
+	</h3>
+
+	<a class="waves-effect wave-light btn" ng-click="cambiarTipo('Firmados')" style="width:270px;">
+		Proyectos Firmados
+		<i class="material-icons right">
+			done
+		</i>
+	</a>
+
+	<br/>
+
+	<a class="waves-effect wave-light btn" ng-click="cambiarTipo('Cofirmados')" style="width:270px;">
+		Proyectos Cofirmados
+		<i class="material-icons right">
+			done_all
+		</i>
+	</a>
+
+	<br/>
+	<br/>
+
+	<table class="table bordered stripped highlight centered">
+		<tr class="teal darken-1 white-text">
+			<td>
+				<strong>
+					EXPEDIENTE				
+				</strong>
+			</td>
+			<td>
+				<strong>
+					PROYECTO				
+				</strong>
+			</td>
+			<td>
+				<strong>
+					TIPO				
+				</strong>
+			</td>
+			<td>
+				<strong>
+					FECHA				
+				</strong>
+			</td>
+			<td>
+				<strong>
+					ACCIONES				
+				</strong>
+			</td>
+		</tr>
+
+		<tr ng-repeat="p in proyectos">
+			<td>
+				<strong>
+					{{p.expediente}}
+				</strong>
+			</td>
+			<td>
+				{{p.proyecto}}
+			</td>
+			<td>
+				{{p.tipo}}
+			</td>
+			<td>
+				{{p.fecha}}
+			</td>
+			<td>
+				
+				<a href="/public/detalle_proyecto.php?p={{p.id}}" class="btn-floating" target="__black">
+					<i class="material-icons white-text">
+						pageview
+					</i>
+				</a>
+				
+				<a href="/public/img/sesiones/ftp/{{p.id}}/{{p.id}}.pdf" class="btn-floating" target="__black">
+					<i class="material-icons white-text">
+						description
+					</i>
+				</a>
+
+			</td>
+		</tr>
+	</table>
+
+	<br/>
+	<br/>
+	<br/>
+</div>

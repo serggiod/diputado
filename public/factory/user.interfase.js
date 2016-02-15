@@ -152,6 +152,7 @@ angular
                     .success(function(json){
                         if(json.result){
                             $session.set('diputado',json);
+                            $this.resetUi();
                             $this.initUi(json);
                         }
                     })
