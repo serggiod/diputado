@@ -1,6 +1,6 @@
 angular
     .module('diputado')
-    .factory('$ui',function($http,$session,$local,$routeParams){
+    .factory('$ui',function($http,$session,$local,$location,$routeParams){
         return {
             init:function(){
                 
@@ -85,7 +85,10 @@ angular
                 $('#loading').hide();
             },
             initUi:function(json){
+                $this = this;
                 
+                $this.resetUi(); 
+
                 $('#sideimg')
                     .attr('src','/imgcdn/diputados/'+json.rows.fotografia);
                 
@@ -152,7 +155,6 @@ angular
                     .success(function(json){
                         if(json.result){
                             $session.set('diputado',json);
-                            $this.resetUi();
                             $this.initUi(json);
                         }
                     })

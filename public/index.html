@@ -215,46 +215,50 @@
 
                     </div>
 
-                    <div id="btnfloating2" class="fixed-action-btn horizontal click-to-toggle hide-on-small-only" style="top: 75px; right: 24px; height:50px; display:none;">
-                        <a class="btn-floating btn-large red">
-                            <i class="large mdi-navigation-menu"></i>
-                        </a>
-                        <ul ng-controller="actions">
-                            
-                            <li>
-                                <a class="btn-floating red darken-1" ng-click="goProyectos()">
-                                    <i class="material-icons">
-                                        library_books
-                                    </i>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a class="btn-floating red darken-1" ng-click="goPrensa()">
-                                    <i class="material-icons">
-                                        settings_voice
-                                    </i>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a class="btn-floating red darken-1" ng-click="goFotografias()">
-                                    <i class="material-icons">
-                                        recent_actors
-                                    </i>
-                                </a>
-                            </li>
+                    <div  id="btnfloating2" style="top: 75px; right: 24px; height:50px; display:none;">
 
-                            <li>
-                                <a class="btn-floating red darken-1" ng-click="goVideos()">
+                       <ul ng-controller="actions">
+
+                            <li style="float:right; margin-left:10px;">
+                                <a class="btn-floating btn-large red waves-effect waves-light">
+                                    <i class="large mdi-navigation-menu"></i>
+                                </a>
+                            </li>
+                            
+                            <li style="float:right; margin:10px;">
+                                <a class="btn-floating red darken-1 waves-effect waves-light" ng-click="goVideos()">
                                     <i class="material-icons">
                                         theaters
                                     </i>
                                 </a>
                             </li>
+                            
+                            <li style="float:right; margin:10px;">
+                                <a class="btn-floating red darken-1 waves-effect waves-light" ng-click="goFotografias()">
+                                    <i class="material-icons">
+                                        recent_actors
+                                    </i>
+                                </a>
+                            </li>                            
+                            <li style="float:right; margin:10px;">
+                                <a class="btn-floating red darken-1 waves-effect waves-light" ng-click="goPrensa()">
+                                    <i class="material-icons">
+                                        settings_voice
+                                    </i>
+                                </a>
+                            </li>
+
+                            <li style="float:right; margin:10px;">
+                                <a class="btn-floating red darken-1 waves-effect waves-light" ng-click="goProyectos()">
+                                    <i class="material-icons">
+                                        library_books
+                                    </i>
+                                </a>
+                            </li>
+
+
 
                         </ul>
-
                     </div>
 
                 </div>

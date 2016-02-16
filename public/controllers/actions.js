@@ -16,27 +16,28 @@ angular
 			window.location.reload();
 		};
 
-		$scope.goInicio = function(){
-			$location.path('#/inicio');
-		};
-
 		$scope.goProyectos = function(){
 			diputado = $session.get('diputado');
 			uri = '/'+diputado.uriname+'/proyectos';
-			console.log(uri);
 			$location.path(uri);
 		};
 
 		$scope.goPrensa = function(){
-			$location.path('#/prensa');
+			diputado = $session.get('diputado');
+			uri = '/'+diputado.uriname+'/prensa';
+			$location.path(uri);
 		};
 
 		$scope.goFotografias = function(){
-			$location.path('#/fotografias');
+			diputado = $session.get('diputado');
+			uri = '/'+diputado.uriname+'/fotografias';
+			$location.path(uri);
 		};
 
 		$scope.goVideos = function(){
-			$location.path('#/videos');
+			diputado = $session.get('diputado');
+			uri = '/'+diputado.uriname+'/videos';
+			$location.path(uri);
 		};
 
 	});

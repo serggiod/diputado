@@ -21,7 +21,6 @@ angular
 				.success(function(json){
 					if(json.result){
 						$scope.proyectos = json.rows;
-						console.log($scope.proyectos);
 					}
 				})
 				.error(function(){
