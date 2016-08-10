@@ -3,8 +3,7 @@ angular
 	.config(function($routeProvider){
 	    $routeProvider
 	    	.when('/',{
-	    		templateUrl:'views/diputados.html',
-	    		controller:'diputados'
+	    		redirectTo:'/diputados'
 	    	})
 	    	.when('/diputados',{
 	    		templateUrl:'views/diputados.html',

@@ -24,7 +24,7 @@ angular
 					}
 				})
 				.error(function(){
-					$location.path('#/'+uriname)
+					$location.path('/'+uriname)
 				});
 		};
 

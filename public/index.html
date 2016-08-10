@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-        <title>Argentina | Jujuy | Diputado</title>
+        <title>Argentina | Jujuy | Diputado | {{diputado.nombre}}</title>
 
         <style>
             body{
@@ -34,7 +34,7 @@
         <link rel="import" href="/webcomponents/panels/panel-left-main.html">
         
         <!-- Loading -->
-        <div-loading id="loading" text="Iniciando aplicaci&oacute;n..."></div-loading>
+        <div-loading text="Iniciando aplicaci&oacute;n..." ng-hide="loading"></div-loading>
 
         <!-- JSLib: JQuery -->
         <script src="/jscdn/jquery/dist/jquery.min.js"></script>
@@ -54,9 +54,6 @@
 
         <!-- Aplicacion Angular: Definicionn -->
         <script src="application/application.js"></script>
-
-        <!-- Aplicacion Angular: Factorias -->
-        <script src="factory/user.interfase.js"></script>
 
         <!-- Aplicacion Angular: Controladores --> 
         <script src="controllers/actions.js"></script>
@@ -129,35 +126,73 @@
             </div>
             <div panel-left>
 
-                <div id="sidecard" class="card grey darken-2 white-text" style="display:none; overflow:hidden;">
+                <div id="sidecard" class="card grey darken-2 white-text">
                     <div class="card-image blue">
-                        <img  id="sideimg"  class="responsive-img"/>
-                        <span id="sidename" class="card-title green"></span>
+                        <img class="responsive-img" src="/public/img/diputados/{{diputado.fotografia}}"/>
+                        <h5 class="card-title green">{{diputado.nombre}}</h5>
                     </div>
-                    <div class="card-action grey darken-1" id="sideperiodo"></div>
+                    <div class="card-action grey darken-1">{{diputado.mandato}}</div>
                     <div class="card-action grey darken-2">
                         <center>
-                            <img id="sidebloimg" class="circle" style="width:32px"/>
+                            <img src="/public/img/bloques/{{diputado.escudo}}" class="circle" style="width:64px"/>
                             <br/>
-                            <span id="sidebloname"></span>
+                            <h5>{{diputado.bloque}}</h5>
                         </center>
                     </div>
                 </div>
 
-                <div id="sidecomisiones" class="card grey darken-2 white-text" style="display:none; overflow:hidden;">
+                <div id="sidecomisiones" class="card grey darken-2 white-text">
                     <div class="card-title" style="margin:15px;">Comisiones que Integra</div>
                     <div class="card-content">
-                        <ul id="ulcomisiones"></ul>
+                        <ul>
+                            <li ng-repeat="c in diputado.comisiones">{{c.cargo}} de {{c.comision}}</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div id="sidecontacto" class="card grey darken-2 white-text" style="display:none; overflow:hidden;">
-                    <div class="card-action grey darken-2" id="sideemail"></div>
-                    <div class="card-action grey darken-2" id="sidetel"></div>
-                    <div class="card-action grey darken-2" id="sideweb"></div>
-                    <div class="card-action grey darken-2" id="sideface"></div>
-                    <div class="card-action grey darken-2" id="sidetwit"></div>
-                    <div class="card-action grey darken-2" id="sideyt"></div>
+                <div id="sidecontacto" class="card grey darken-2 white-text">
+                    <div class="card-action grey darken-2" ng-show="mail">
+                        <a class="white-text left-align" href="mailto:{{diputado.email}}" style="text-transform:lowercase;">
+                            <i class="small material-icons">email</i>
+                            <br/>
+                            {{diputado.email}}
+                        </a>
+                    </div>
+                    <div class="card-action grey darken-2" ng-show="tel">
+                        <a class="white-text left-align">
+                            <i class="small material-icons">phone</i>
+                            <br/>
+                            +54 388 {{diputado.telefono}}
+                        </a>
+                    </div>
+                    <div class="card-action grey darken-2" ng-show="web">
+                            <a class="white-text left-align" href="{{diputado.paginaweb}}" target="_blank" style="text-transform:lowercase;">
+                                <i class="small material-icons">web</i>
+                                <br/>
+                                {{diputado.paginaweb}}
+                            </a>
+                    </div>
+                    <div class="card-action grey darken-2" ng-show="face">
+                            <a class="white-text left-align" href="{{diputado.facebook}}" target="_blank" style="text-transform:lowercase;">
+                                <i class="small material-icons">person_pin</i>
+                                <br/>
+                                {{diputado.facebook}}
+                            </a>
+                    </div>
+                    <div class="card-action grey darken-2" ng-show="twit">
+                            <a class="white-text left-align" href="{{diputado.twitter}}" target="_blank" style="text-transform:lowercase;">
+                                <i class="small material-icons">person_pin</i>
+                                <br/>
+                                {{diputado.twitter}}
+                            </a>
+                    </div>
+                    <div class="card-action grey darken-2" ng-show="yt">
+                            <a class="white-text left-align" href="{{diputado.youtube}}" target="_blank" style="text-transform:lowercase;">
+                                <i class="small material-icons">video_library</i>
+                                <br/>
+                                {{diputado.youtube}}
+                            </a>
+                    </div>
                 </div>
 
 

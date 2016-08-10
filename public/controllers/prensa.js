@@ -31,6 +31,8 @@ angular
 							doc += '<a href="javascript: window.partesClose();" class="btn-floating btn-large red waves-effect waves-light right" style="z-index:100;float:right;top:-40px;right:40px;"><i class="material-icons">close</i></a>'
 							doc += '</div>';
 							$('body').append(doc);
+							delete doc;
+							return true;
 						}
 					})
 					.error(function(){
@@ -46,7 +48,8 @@ angular
 				$http.get(uri)
 					.success(function(json){
 						if(json.result){
-							var doc = window.open(new Document,'doc','width=10,height=10, resizable=yes');
+							imprimirView = document.getElementById('imprimirView');
+							doc = imprimirView.contentWindow || imprimirView.contentDocument;
 							doc.document.open();
 							doc.document.write('<html>');
 							doc.document.write('<head><meta charset="UTF-8"><title>'+json.rows.titulo+'</title></head>');
@@ -61,8 +64,9 @@ angular
 							doc.document.write('</html>');
 							doc.document.close();
 							doc.print();
-							doc.close();
-							
+							delete imprimirView;
+							delete doc;
+							return true;
 						}
 					})
 					.error(function(){
