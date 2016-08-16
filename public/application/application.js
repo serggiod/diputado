@@ -1,5 +1,5 @@
 angular
-	.module('diputado',['ngRoute','ngSession','ngLocal'])
+	.module('diputado',['ui.materialize','ngRoute','ngSession','ngLocal'])
 	.config(function($routeProvider){
 	    $routeProvider
 	    	.when('/',{
