@@ -1,10 +1,13 @@
 angular
 	.module('diputado')
-	.controller('proyectos',function($scope,$location,$http,$session,$local,$routeParams,$ui){
+	.controller('proyectos',function($scope,$rootScope,$http,$session,$local,$routeParams){
 		
+		$scope.uriname = $routeParams.uriname;
+		$scope.tipo    = 'cofirmados';
+
 		$scope.init = function(){
-			$ui.init();
-			$scope.tipo = 'Cofirmados';
+			if(typeof($rootScope.diputado)==='undefined') $rootScope.init($scope.uriname);
+			$rootScope.loading = true;
 			$scope.getProyectos();
 		};
 
@@ -14,9 +17,8 @@ angular
 		};
 
 		$scope.getProyectos = function(){
-			var diputado = $session.get('diputado');
-			var uriname  = diputado.uriname;
-			var uri      = '/rest/proyectos.php/proyectos/'+uriname+'/'+$scope.tipo.toLowerCase();
+			var uriname  = $scope.uriname;
+			var uri      = '/rest/diputado.php/'+uriname+'/proyectos/'+$scope.tipo;
 			$http.get(uri)
 				.success(function(json){
 					if(json.result){

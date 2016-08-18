@@ -1,32 +1,32 @@
 <div>
-	<h3 class="blue-text text-darken-4">
-		<strong>
-			Poyectos
-		</strong>
-		<small class="grey-text text-darken-2">
-			{{tipo}}
-		</small>
-	</h3>
 
-	<a class="waves-effect wave-light btn" ng-click="cambiarTipo('Firmados')" style="width:290px;">
-		Proyectos Firmados
-		<i class="material-icons right">
-			done
-		</i>
-	</a>
+	<!-- Menu Local -->
+	<div ng-include src="'views/localmenu.html'"></div>
+	<!-- /Menu Local -->
 
-	<br/>
+	<!-- Menu  Proyectos -->
+	<nav class="grey lighten-2">
+		<div class="nav-wrapper">
+			<ul class="center">
 
-	<a class="waves-effect wave-light btn" ng-click="cambiarTipo('Cofirmados')" style="width:290px;">
-		Proyectos Cofirmados
-		<i class="material-icons right">
-			done_all
-		</i>
-	</a>
+				<li>
+					<a class="grey grey-lighten-1 waves-effect wave-light btn" ng-click="cambiarTipo('cofirmados')">
+						Proyectos Cofirmados
+					</a>					
+				</li>
 
-	<br/>
-	<br/>
+				<li>
+					<a class="grey grey-lighten-1 waves-effect wave-light btn" ng-click="cambiarTipo('firmados')">
+						Proyectos Firmados
+					</a>
+				</li>
 
+			</ul>
+		</div>		
+	</nav>
+	<!-- /Menu Proyectos -->
+
+	<!-- Grid Proyectos -->
 	<table class="table bordered stripped highlight centered">
 		<tr class="teal darken-1 white-text">
 			<td>
@@ -88,8 +88,6 @@
 			</td>
 		</tr>
 	</table>
+	<!-- /Grid Proyectos -->
 
-	<br/>
-	<br/>
-	<br/>
 </div>
