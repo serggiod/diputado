@@ -40,25 +40,6 @@
 
         <!-- JSLib: JQuery -->
         <script src="/jscdn/jquery/dist/jquery.min.js"></script>
-        <script>
-            //jQuery.support.cors = true;
-        </script>
-
-        <!-- Polyfill X Domain
-        <script src="/jscdn/jpillora/xdomain/dist/xdomain.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/xhook/1.3.5/xhook.min.js"></script>
-        <script>
-            xdomain.debug = true;
-            /*
-            xdomain.masters({
-                'http://localhost': '/proxy.html'
-            });
-            */
-            xdomain.slaves({
-                "https://wwww.google.com": "/*",
-                "https://wwww.google.com.ar": "/?*"
-            });
-        </script>
 
         <!-- JSLib: Materialize --> 
         <link rel="stylesheet" type="text/css" href="/jscdn/Materialize/dist/css/materialize.min.css">
@@ -90,34 +71,50 @@
         <script src="controllers/videos.js"></script>
 
 
-        <panel-left-main class="row panel" classmain="grey lighten-2">
+        <panel-left-main class="row panel grey darken-2" cssnav="light-green darken-4" csssec="grey lighten-2" cssleft="grey darken-4" cssmain="grey lighten-2">
             <div panel-navbar>
 
-                <!-- Composicion Logo -->
-                <ul class="left">
-
-                    <!-- Logo: text -->
-                    <li class="hide-on-small-only valign-wrapper">
+                <!-- Titular en laptops -->
+                <ul class="hide-on-small-only center">
+                    <li class="">
                         <h6>
                             <img src="/imgcdn/jujuy.png" width="42" class="white circle responsive-img"/>
                         </h6>
                     </li>
-                    <li class="hide-on-small-only valign-wrapper">
+                    <li class="">
                         <h5 class="isotipo">
                             Legislatura
                             <small>de Jujuy</small>
                         </h5>                            
                     </li>
-                    <li class="hide-on-med-and-up">
-                        <h5>
-                           <small>Legislatura</small>
-                        </h5>                        
-                    </li>
-                
                 </ul>
 
-                <!-- Grupo de Botones -->
-                <ul class="right" ng-controller="actions">
+                <!-- Titular en smartphone. -->
+                <ul class="hide-on-med-and-up center">
+                    <li class="">
+                        <h5>
+                            Legislatura
+                            <small>Jujuy</small>
+                        </h5>                        
+                    </li>
+                </ul>
+
+                <!-- Boton de menu derecho -->
+                <div class="fixed-action-btn click-to-toggle hide-on-med-and-up" style="top:20px;right:10px;">
+                    <a class="waves-effect waves-teal btn btn-floating btn-large light-green darken-2">
+                        <i class="material-icons">
+                            send
+                        </i>
+                    </a>
+                    <ul ng-controller="actions">
+                        <li><a class="btn-floating light-green darken-4" ng-click="goHome()"><i class="material-icons">home</i></a></li>
+                        <li><a class="btn-floating light-green darken-4" ng-click="goRefresh()"><i class="material-icons">refresh</i></a></li>
+                        <li><a class="btn-floating light-green darken-4" ng-click="goDiputados()"><i class="material-icons">contacts</i></a></li>
+                    </ul>
+                </div>
+
+                <!-- Grupo de Menu -->
+                <ul ng-controller="actions" class="hide-on-small-only right">
                     
                     <!-- Boton Home -->
                     <li>
@@ -237,8 +234,8 @@
 
             <div panel-main>
 
-                <div style="z-index:-200;">
-
+                <!--div-->
+                <!--
                     <div id="btnfloating1" class="fixed-action-btn vertical click-to-toggle  hide-on-med-and-up" style="bottom: 45px; right: 24px; height:50px; display:none;">
                         <a class="btn-floating btn-large red">
                             <i class="large mdi-navigation-menu"></i>
@@ -327,8 +324,8 @@
 
                         </ul>
                     </div>
-
-                </div>
+                -->
+                <!--/div-->
 
                 <div ng-view></div> 
             </div>

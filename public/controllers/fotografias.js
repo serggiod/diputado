@@ -8,7 +8,7 @@ angular
 		$scope.init = function(){
 
 			if($scope.diputado.flickr.match('www.flickr.com')!=null){
-				uri = $scope.diputado.flickr.replace('https://','').split('/').join('.-.');
+				uri = window.btoa($scope.diputado.flickr);
 				$http
 					.get('https://legproxy.herokuapp.com/flickr/'+uri)
 					.success(function(json){

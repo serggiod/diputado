@@ -1,72 +1,28 @@
-<div>
-	<h3 class="blue-text text-darken-4">
-		<strong>
-			Galer&iacute;a
-		</strong>
-		<small class="grey-text text-darken-2">
-			de videos
-		</small>
-	</h3>
+<div class="row">
 
-	<br/>
-	<br/>
+	<!-- Menu Local -->
+	<div ng-include src="'views/localmenu.html'"></div>
+	<!-- /Menu Local -->
 
-	<!--
-	<table class="table bordered stripped highlight centered">
-		<tr class="teal darken-1 white-text">
-			<td>
-				<strong>
-					TITULO
-				</strong>
-			</td>
-			<td>
-				<strong>
-					RESUMEN
-				</strong>
-			</td>
-			<td>
-				<strong>
-					FECHA
-				</strong>
-			</td>
-			<td>
-				<strong>
-					ACCIONES				
-				</strong>
-			</td>
-		</tr>
+	<!-- Grid  Fotografias -->
+	<div class="col s12 m12 l6" ng-repeat="v in videos">
+		<div class="card white darken-2">
+			<div class="card-action grey lighten-2 grey-text text-darken-1 right-align">
+				{{diputado.nombre}}
+			</div>
+			<div class="card-image black-text">
+				<img src="{{v.img}}"/>
+			</div>
+			<div class="card-action blue-text text-darken-2 valign-wrapper" style="cursor:pointer;">
 
-		<tr ng-repeat="p in partes">
-			<td>
-				<strong>
-					{{p.titulo}}
-				</strong>
-			</td>
-			<td>
-				{{p.resumen}}
-			</td>
-			<td>
-				{{p.fecha}}
-			</td>
-			<td>
-				
-				<a href="/public/detalle_proyecto.php?p={{p.id}}" class="btn-floating" target="__black">
-					<i class="material-icons white-text">
-						pageview
+				<a class="blue-text text-darken-2 valign activator" href="{{v.url}}" target="_blank">
+					<i class="material-icons valign">
+						send
 					</i>
 				</a>
-				
-				<a href="/public/img/sesiones/ftp/{{p.id}}/{{p.id}}.pdf" class="btn-floating" target="__black">
-					<i class="material-icons white-text">
-						description
-					</i>
-				</a>
+			</div>
+		</div>
+	</div>
+	<!-- /Grid Fotografias -->
 
-			</td>
-		</tr>
-	</table>
-	-->
-	<br/>
-	<br/>
-	<br/>
 </div>

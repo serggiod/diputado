@@ -1,13 +1,12 @@
 angular
 	.module('diputado')
-	.controller('proyectos',function($scope,$rootScope,$http,$session,$local,$routeParams){
+	.controller('proyectos',function($scope,$rootScope,$http,$session,$routeParams){
 		
-		$scope.uriname = $routeParams.uriname;
-		$scope.tipo    = 'cofirmados';
+		$scope.uriname  = $routeParams.uriname;
+		$scope.diputado = JSON.parse($session.get('diputado'));
+		$scope.tipo     = 'cofirmados';
 
 		$scope.init = function(){
-			if(typeof($rootScope.diputado)==='undefined') $rootScope.init($scope.uriname);
-			$rootScope.loading = true;
 			$scope.getProyectos();
 		};
 

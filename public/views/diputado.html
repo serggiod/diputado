@@ -5,46 +5,87 @@
 	<!-- /Menu Local -->
 
 	<!-- Paginador -->
-	<nav class="grey lighten-2">
-		<div class="nav-wrapper">
-			<ul class="left">
-			    <li class="waves-effect">
-			    	<a class="grey-text text-darken-2">
-			    		Visualizando {{actual}}  de {{ultimo}}:
-			    	</a>
-			    </li>
-			    <li class="waves-effect">
-			    	<a ng-click="getPartes(primero)" class="grey-text text-darken-2">
-			    		<i class="material-icons">
-			    			skip_previous
-			    		</i>
-			    	</a>
-			    </li>
-			    <li class="waves-effect">
-			    	<a ng-click="getPartes(anterior)" class="grey-text text-darken-2">
-			    		<i class="material-icons">
-			    			fast_rewind
-			    		</i>
-			    	</a>
-			    </li>
-			    
-			    <li class="waves-effect">
-			    	<a ng-click="getPartes(siguiente)" class="grey-text text-darken-2">
-			    		<i class="material-icons">
-			    			fast_forward
-			    		</i>
-			    	</a>
-			    </li>
-			    <li class="waves-effect">
-			    	<a ng-click="getPartes(ultimo)" class="grey-text text-darken-2">
-			    		<i class="material-icons">
-			    			skip_next
-			    		</i>
-			    	</a>
-			    </li>				
-			</ul>
-		</div>
-	</nav>
+		<!-- Paginador para smartphones -->
+		<nav class="grey lighten-2 hide-on-med-and-up">
+			<div class="nav-wrapper">
+				<ul class="left">
+				    <li class="waves-effect">
+				    	<a ng-click="getPartes(primero)" class="grey-text text-darken-2">
+				    		<i class="material-icons">
+				    			skip_previous
+				    		</i>
+				    	</a>
+				    </li>
+				    <li class="waves-effect">
+				    	<a ng-click="getPartes(anterior)" class="grey-text text-darken-2">
+				    		<i class="material-icons">
+				    			fast_rewind
+				    		</i>
+				    	</a>
+				    </li>
+				    <li class="waves-effect">
+				    	<a class="grey-text text-darken-2">
+				    		{{actual}}/{{ultimo}}
+				    	</a>
+				    </li>
+				    <li class="waves-effect">
+				    	<a ng-click="getPartes(siguiente)" class="grey-text text-darken-2">
+				    		<i class="material-icons">
+				    			fast_forward
+				    		</i>
+				    	</a>
+				    </li>
+				    <li class="waves-effect">
+				    	<a ng-click="getPartes(ultimo)" class="grey-text text-darken-2">
+				    		<i class="material-icons">
+				    			skip_next
+				    		</i>
+				    	</a>
+				    </li>				
+				</ul>
+			</div>
+		</nav>
+		<!-- Paginador para tablets y laptops -->
+		<nav class="grey lighten-2 hide-on-small-only">
+			<div class="nav-wrapper">
+				<ul class="left">
+				    <li class="waves-effect">
+				    	<a class="grey-text text-darken-2">
+				    		Visualizando {{actual}}  de {{ultimo}}:
+				    	</a>
+				    </li>
+				    <li class="waves-effect">
+				    	<a ng-click="getPartes(primero)" class="grey-text text-darken-2">
+				    		<i class="material-icons">
+				    			skip_previous
+				    		</i>
+				    	</a>
+				    </li>
+				    <li class="waves-effect">
+				    	<a ng-click="getPartes(anterior)" class="grey-text text-darken-2">
+				    		<i class="material-icons">
+				    			fast_rewind
+				    		</i>
+				    	</a>
+				    </li>
+				    
+				    <li class="waves-effect">
+				    	<a ng-click="getPartes(siguiente)" class="grey-text text-darken-2">
+				    		<i class="material-icons">
+				    			fast_forward
+				    		</i>
+				    	</a>
+				    </li>
+				    <li class="waves-effect">
+				    	<a ng-click="getPartes(ultimo)" class="grey-text text-darken-2">
+				    		<i class="material-icons">
+				    			skip_next
+				    		</i>
+				    	</a>
+				    </li>				
+				</ul>
+			</div>
+		</nav>
 	<!-- /Paginador -->
 
 
