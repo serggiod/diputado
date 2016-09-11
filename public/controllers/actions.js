@@ -1,6 +1,6 @@
 angular
 	.module('diputado')
-	.controller('actions',function($scope,$location,$http,$session){
+	.controller('actions',function($scope,$location,$http){
 
 		// Funciones para Navigator Bar.
 		$scope.goHome = function(){

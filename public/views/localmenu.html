@@ -1,30 +1,30 @@
 <!-- Menu local para smartphones solamente. -->
-<nav ng-controller="diputado" class="grey ligthen-4 hide-on-med-and-up center">
+<nav class="grey ligthen-4 hide-on-med-and-up center">
   	<div class="nav-wrapper">
   		<ul>
   			<li>
-  				<a href="#/{{diputado.uriname}}">
-  					<i class="material-icons">
-  						home
-  					</i>
-  				</a>
-  			</li>
-  			<li>
-  				<a href="#/{{diputado.uriname}}/proyectos">
+  				<a href="#/{{uriname}}/proyectos">
   					<i class="material-icons">
   						library_books
   					</i>
   				</a>
   			</li>
+  			<li>
+  				<a href="#/{{uriname}}/noticias">
+  					<i class="material-icons">
+  						info_outline
+  					</i>
+  				</a>
+  			</li>
   			<li ng-show="fkr">
-  				<a href="#/{{diputado.uriname}}/fotografias">
+  				<a href="#/{{uriname}}/fotografias">
   					<i class="material-icons">
   						photo_library
   					</i>
   				</a>
   			</li>
   			<li ng-show="yt">
-  				<a href="#/{{diputado.uriname}}/videos">
+  				<a href="#/{{uriname}}/videos">
   					<i class="material-icons">
   						video_library
   					</i>
@@ -35,27 +35,27 @@
 </nav>
 
 <!-- Menu local para tablets y laptops -->
-<nav class="grey ligthen-4 hide-on-small-only" ng-controller="diputado">
+<nav class="grey ligthen-4 hide-on-small-only">
   	<div class="nav-wrapper">
   		<ul class="right">
   			<li>
-  				<a href="#/{{diputado.uriname}}">
-  					<i class="material-icons left">
-  						home
-  					</i>
-  					Inicio
-  				</a>
-  			</li>
-  			<li>
-  				<a href="#/{{diputado.uriname}}/proyectos">
+  				<a href="#/{{uriname}}/proyectos">
   					<i class="material-icons left">
   						library_books
   					</i>
   					Proyectos
   				</a>
   			</li>
+  			<li>
+  				<a href="#/{{uriname}}/noticias">
+  					<i class="material-icons left">
+  						info_outline
+  					</i>
+  					Noticias
+  				</a>
+  			</li>
   			<li ng-show="fkr">
-  				<a href="#/{{diputado.uriname}}/fotografias">
+  				<a href="#/{{uriname}}/fotografias">
   					<i class="material-icons left">
   						photo_library
   					</i>
@@ -63,7 +63,7 @@
   				</a>
   			</li>
   			<li ng-show="yt">
-  				<a href="#/{{diputado.uriname}}/videos">
+  				<a href="#/{{uriname}}/videos">
   					<i class="material-icons left">
   						video_library
   					</i>

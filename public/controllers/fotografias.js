@@ -1,9 +1,9 @@
 angular
 	.module('diputado')
-	.controller('fotografias',function($scope,$http,$httpX,$session,$routeParams){
+	.controller('fotografias',function($scope,$http,$routeParams){
 		
 		$scope.uriname  = $routeParams.uriname;
-		$scope.diputado = JSON.parse($session.get('diputado'));
+		$scope.diputado = JSON.parse();
 
 		$scope.init = function(){
 

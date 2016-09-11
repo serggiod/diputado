@@ -1,31 +1,47 @@
 angular
 	.module('diputado')
-	.controller('diputado',function($scope,$rootScope,$http,$session,$routeParams){
+	.controller('diputado',function($scope,$rootScope,$http,$routeParams,$location){
 
+		/* Optener uriname */
 		$scope.uriname = $routeParams.uriname;
 		
+		/* Función inicilizadora. */
+		uri = '/rest/institucion.php/diputado/'+$scope.uriname;
 		$scope.init = function(){
-			$scope.primero   = 1;
-			$scope.anterior  = 1;
-			$scope.actual    = 1;
-			$scope.siguiente = 1;
-			$scope.ultimo    = 1;
-			$http.get('/rest/institucion.php/diputado/'+$scope.uriname)
+			$http.get('diputado.json')
 				.success(function(json){
-					if(json.result){
-						$rootScope.diputado = json.rows;
-						
-						if($rootScope.diputado.email)     { $rootScope.mail = true; }
-						if($rootScope.diputado.telefono)  { $rootScope.tel  = true; }
-						if($rootScope.diputado.paginaweb) { $rootScope.web  = true; }
-						if($rootScope.diputado.facebook)  { $rootScope.face = true; $scope.face = true;}
-						if($rootScope.diputado.twitter)   { $rootScope.twit = true; $scope.twit = true;}
-						if($rootScope.diputado.youtube)   { $rootScope.yt   = true; $scope.yt   = true;}
-						if($rootScope.diputado.flickr)    { $rootScope.fkr  = true; $scope.fkr  = true;}
 
-						$session.set('diputado',JSON.stringify(json.rows));
-						$scope.getPartes($scope.primero);
+					if(json.result){
+						
+						$rootScope.bloque     = json.rows.bloque;     
+						$rootScope.bloquehash = json.rows.bloquehash ;
+						$rootScope.comisiones = json.rows.comisiones ;
+						$rootScope.email      = json.rows.email;
+						$rootScope.escudo     = json.rows.escudo;
+						$rootScope.facebook   = json.rows.facebook;
+						$rootScope.flickr     = json.rows.flickr;
+						$rootScope.fotografia = json.rows.fotografia;
+						$rootScope.mandato    = json.rows.mandato;
+						$rootScope.nombre     = json.rows.nombre;
+						$rootScope.paginaweb  = json.rows.paginaweb;
+						$rootScope.telefono   = json.rows.telefono;
+						$rootScope.twitter    = json.rows.twitter;
+						$rootScope.uriname    = json.rows.uriname;
+						$rootScope.youtube    = json.rows.youtube;
+
+
+						if($rootScope.email!=null)     { $rootScope.mail = true; }
+						if($rootScope.telefono!=null)  { $rootScope.tel  = true; }
+						if($rootScope.paginaweb!=null) { $rootScope.web  = true; }
+						if($rootScope.facebook!=null)  { $rootScope.face = true; }
+						if($rootScope.twitter!=null)   { $rootScope.twit = true; }
+						if($rootScope.youtube!=null)   { $rootScope.yt   = true; }
+						if($rootScope.flickr!=null)    { $rootScope.fkr  = true; }
+						
 						$rootScope.loading = true;
+
+						$location.url('/'+$scope.uriname+'/proyectos');
+
 					}
 					else {
 						$location.url('/');
@@ -34,28 +50,10 @@ angular
 				.error(function(){
 					$location.url('/');
 				});
-			
-		};
+		}
 
-		$scope.toggle = function(elementId){
-			$('#'+elementId).toggle()
-		};
-
-		$scope.getPartes = function(page){
-			$http.get('/rest/diputado.php/'+$scope.uriname+'/partes/'+page)
-				.success(function(json){
-					if(json.result){
-						$scope.noticias  = json.rows.partes;
-						$scope.actual    = json.rows.paginador.pagina;
-						$scope.ultimo    = json.rows.paginador.paginas;
-						$scope.anterior  = (parseInt(json.rows.paginador.pagina)) -1;
-						$scope.siguiente = (parseInt(json.rows.paginador.pagina)) +1;
-						if($scope.anterior<1) $scope.anterior = 1;
-						if($scope.siguiente>$scope.ultimo) $scope.siguiente=$scope.ultimo;
-					}
-				});
-		};
-
+		/* Inicializar. */
 		$scope.init();
+		
 
 	});
