@@ -8,7 +8,7 @@ angular
 		/* Función inicilizadora. */
 		uri = '/rest/institucion.php/diputado/'+$scope.uriname;
 		$scope.init = function(){
-			$http.get('diputado.json')
+			$http.get(uri)
 				.success(function(json){
 
 					if(json.result){

@@ -1,14 +1,16 @@
 angular
 	.module('diputado')
-	.controller('videos',function($scope,$http,$routeParams){
+	.controller('videos',function($scope,$rootScope,$http,$routeParams){
 		
 		$scope.uriname  = $routeParams.uriname;
-		$scope.diputado = JSON.parse();
+		$scope.fkr 		= $rootScope.fkr;
+		$scope.yt  		= $rootScope.yt;
 
 		$scope.init = function(){
 
-			if($scope.diputado.youtube.match('www.youtube.com')!=null){
-				uri = $scope.diputado.youtube;
+			$rootScope.loading=false;
+			if($rootScope.youtube.match('www.youtube.com')!=null){
+				uri = $rootScope.youtube;
 				if(uri.match('/channel/')) {
 					uri = uri + '/videos';
 				}
@@ -25,6 +27,7 @@ angular
 					.get('https://legproxy.herokuapp.com/youtube/'+uri)
 					.success(function(json){
 						$scope.videos = json;
+						$rootScope.loading=true;
 					});
 			}
 			

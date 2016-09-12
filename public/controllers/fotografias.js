@@ -1,18 +1,21 @@
 angular
 	.module('diputado')
-	.controller('fotografias',function($scope,$http,$routeParams){
+	.controller('fotografias',function($scope,$rootScope,$http,$routeParams){
 		
 		$scope.uriname  = $routeParams.uriname;
-		$scope.diputado = JSON.parse();
+		$scope.fkr 		= $rootScope.fkr;
+		$scope.yt  		= $rootScope.yt;
 
 		$scope.init = function(){
 
-			if($scope.diputado.flickr.match('www.flickr.com')!=null){
-				uri = window.btoa($scope.diputado.flickr);
+			$rootScope.loading=false;
+			if($rootScope.flickr.match('www.flickr.com')!=null){
+				uri = window.btoa($rootScope.flickr);
 				$http
 					.get('https://legproxy.herokuapp.com/flickr/'+uri)
 					.success(function(json){
 						$scope.fotografias = json;
+						$rootScope.loading=true;
 					});
 			}
 			
