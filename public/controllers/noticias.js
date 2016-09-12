@@ -1,24 +1,32 @@
 angular
 	.module('diputado')
-	.controller('noticias',function($scope,$rootScope,$http,$routeParams,$location){
+	.controller('noticias',function($root,$scope,$rootScope,$http,$routeParams,$location){
 
+		/* Valores por defecto. */
 		$scope.uriname   = $routeParams.uriname;
-		$scope.fkr 		 = $rootScope.fkr;
-		$scope.yt  		 = $rootScope.yt;
 		$scope.primero   = 1;
 		$scope.anterior  = 1;
 		$scope.actual    = 1;
 		$scope.siguiente = 1;
 		$scope.ultimo    = 1;
 
+		/* Inicializar el controlador. */
 		$scope.init = function(){
+			if($rootScope.nombre==undefined){
+				json = JSON.parse(sessionStorage.getItem('json'));
+				$root.init(json);
+			}
+			$scope.fkr = $rootScope.fkr;
+			$scope.yt  = $rootScope.yt;
 			$scope.getPartes($scope.primero);
 		};
 
+		/* Leer mas. */
 		$scope.toggle = function(elementId){
 			$('#'+elementId).toggle()
 		};
 
+		/* Solicitar partes. */
 		$scope.getPartes = function(page){
 			$rootScope.loading = false;
 			$http.get('/rest/diputado.php/'+$scope.uriname+'/partes/'+page)
@@ -36,6 +44,7 @@ angular
 				});
 		};
 
+		/* Iniciar. */
 		$scope.init();
 
 	});

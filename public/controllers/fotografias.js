@@ -1,13 +1,18 @@
 angular
 	.module('diputado')
-	.controller('fotografias',function($scope,$rootScope,$http,$routeParams){
+	.controller('fotografias',function($root,$scope,$rootScope,$http,$routeParams){
 		
+		/* Valores por defecto. */
 		$scope.uriname  = $routeParams.uriname;
-		$scope.fkr 		= $rootScope.fkr;
-		$scope.yt  		= $rootScope.yt;
 
+		/* Función inicializadora. */
 		$scope.init = function(){
-
+			if($rootScope.nombre==undefined){
+				json = JSON.parse(sessionStorage.getItem('json'));
+				$root.init(json);
+			}
+			$scope.fkr = $rootScope.fkr;
+			$scope.yt  = $rootScope.yt;
 			$rootScope.loading=false;
 			if($rootScope.flickr.match('www.flickr.com')!=null){
 				uri = window.btoa($rootScope.flickr);
@@ -21,5 +26,6 @@ angular
 			
 		};
 
+		/* Inicializar. */
 		$scope.init();
 	});

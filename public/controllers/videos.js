@@ -1,13 +1,18 @@
 angular
 	.module('diputado')
-	.controller('videos',function($scope,$rootScope,$http,$routeParams){
+	.controller('videos',function($root,$scope,$rootScope,$http,$routeParams){
 		
+		/* Valores por defecto. */
 		$scope.uriname  = $routeParams.uriname;
-		$scope.fkr 		= $rootScope.fkr;
-		$scope.yt  		= $rootScope.yt;
 
+		/* Función inicializadora. */
 		$scope.init = function(){
-
+			if($rootScope.nombre==undefined){
+				json = JSON.parse(sessionStorage.getItem('json'));
+				$root.init(json);
+			}
+			$scope.fkr = $rootScope.fkr;
+			$scope.yt  = $rootScope.yt;
 			$rootScope.loading=false;
 			if($rootScope.youtube.match('www.youtube.com')!=null){
 				uri = $rootScope.youtube;
@@ -33,5 +38,6 @@ angular
 			
 		};
 
+		/* Inicializar. */
 		$scope.init();
 	});
