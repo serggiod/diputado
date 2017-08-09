@@ -21,11 +21,6 @@ angular
 			$scope.getPartes($scope.primero);
 		};
 
-		/* Leer mas. */
-		$scope.toggle = function(elementId){
-			$('#'+elementId).toggle()
-		};
-
 		/* Solicitar partes. */
 		$scope.getPartes = function(page){
 			$rootScope.loading = false;

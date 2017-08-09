@@ -1,240 +1,181 @@
 <!DOCTYPE html>
 <html lan="es" ng-app="diputado">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-        <title>Argentina | Jujuy | Diputado | {{nombre}}</title>
 
-        <style>
-            body{
-                width:100%;
-                height:100%;
-                border:0;
-                margin:0;
-                background-color: #fff;
-                overflow:hidden;
-            }
-            .panel{
-                z-index:1;
-            }
-            .isotipo{
-                line-height:40px;
-                margin-left:20px;
-            }
-        </style>
-     
-    </head>
-    <body class="body">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>Argentina | Jujuy | Diputado | {{nombre}}</title>
 
-
-
-        <!-- Polyfill para webcomponents -->
-        <script src="/webcomponents/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            margin: 0;
+            background-color: #fff;
+            /*overflow:hidden;*/
+        }
         
-        <!-- Importar componentes web. -->
-        <link rel="import" href="/webcomponents/utils/loading.html">
-        <link rel="import" href="/webcomponents/panels/panel-left-main.html">
+        .panel {
+            z-index: 1;
+        }
         
-        <!-- Loading -->
-        <div-loading text="Iniciando aplicaci&oacute;n..." ng-hide="loading"></div-loading>
+        .isotipo {
+            line-height: 40px;
+            margin-left: 20px;
+        }
+    </style>
 
-        <!-- JSLib: JQuery -->
-        <script src="/jscdn/jquery/dist/jquery.min.js"></script>
+</head>
 
-        <!-- JSLib: Materialize --> 
-        <link rel="stylesheet" type="text/css" href="/jscdn/Materialize/dist/css/materialize.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script type="text/javascript" src="/jscdn/Materialize/dist/js/materialize.min.js"></script>
-
-        <!-- JSLib: Angular -->
-        <script src="/jscdn/angular/angular.min.js"></script>
-        <script src="/jscdn/angular-route/angular-route.min.js"></script>
-        <script src="/jscdn/angular-sanitize/angular-sanitize.min.js"></script>
-
-        <!-- Angular Materialize -->
-        <script src="/jscdn/angular-materialize/src/angular-materialize.js"></script>
-
-        <!-- Aplicacion Angular: Definicionn -->
-        <script src="application/application.js"></script>
-
-        <!-- Aplicacion Angular: Controladores --> 
-        <script src="controllers/actions.js"></script>
-        <script src="controllers/diputados.js"></script>
-        <script src="controllers/diputado.js"></script>
-        <script src="controllers/proyectos.js"></script>
-        <script src="controllers/noticias.js"></script>
-        <script src="controllers/fotografias.js"></script>
-        <script src="controllers/videos.js"></script>
+<body class="body">
 
 
-        <panel-left-main class="row panel grey darken-2" cssnav="light-green darken-4" csssec="grey lighten-2" cssleft="grey darken-4" cssmain="grey lighten-2">
-            <div panel-navbar>
 
-                <!-- Titular en laptops -->
-                <ul class="hide-on-small-only center">
-                    <li class="">
-                        <h6>
-                            <img src="/imgcdn/jujuy.png" width="42" class="white circle responsive-img"/>
-                        </h6>
-                    </li>
-                    <li class="">
-                        <h5 class="isotipo">
-                            Legislatura
-                            <small>de Jujuy</small>
-                        </h5>                            
-                    </li>
-                </ul>
+    <!-- Polyfill para webcomponents -->
+    <!-- <script src="/webcomponents/webcomponentsjs/webcomponents-lite.min.js"></script> -->
 
-                <!-- Titular en smartphone. -->
-                <ul class="hide-on-med-and-up center">
-                    <li class="">
-                        <h5>
-                            Legislatura
-                            <small>Jujuy</small>
-                        </h5>                        
-                    </li>
-                </ul>
+    <!-- Importar componentes web. -->
+    <!-- <link rel="import" href="/webcomponents/utils/loading.html"> -->
+    <!-- <link rel="import" href="/webcomponents/paper-toolbar/paper-toolbar.html"> -->
+    <!-- <link rel="import" href="/webcomponents/iron-icon/iron-icon.html"> -->
+    <!-- <link rel="import" href="/webcomponents/iron-icons/iron-icons.html"> -->
+    <!-- <link rel="import" href="/webcomponents/paper-icon-button/paper-icon-button.html"> -->
 
-                <!-- Boton de menu derecho -->
-                <div class="fixed-action-btn click-to-toggle hide-on-med-and-up" style="top:20px;right:10px;">
-                    <a class="waves-effect waves-teal btn btn-floating btn-large light-green darken-2">
-                        <i class="material-icons">
-                            send
-                        </i>
-                    </a>
-                    <ul ng-controller="actions">
-                        <li><a class="btn-floating light-green darken-4" ng-click="goHome()"><i class="material-icons">home</i></a></li>
-                        <li><a class="btn-floating light-green darken-4" ng-click="goRefresh()"><i class="material-icons">refresh</i></a></li>
-                        <li><a class="btn-floating light-green darken-4" ng-click="goDiputados()"><i class="material-icons">contacts</i></a></li>
+    <!-- Loading -->
+    <!-- <div-loading text="Iniciando aplicaci&oacute;n..." ng-hide="loading"></div-loading> -->
+
+    <!-- JSLib: JQuery -->
+    <script src="/jscdn/jquery/dist/jquery.min.js"></script>
+
+    <!-- JSLib: Materialize -->
+    <link rel="stylesheet" type="text/css" href="/jscdn/Materialize/dist/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="/jscdn/Materialize/dist/js/materialize.min.js"></script>
+
+    <!-- JSLib: Angular -->
+    <script src="/jscdn/angular/angular.min.js"></script>
+    <script src="/jscdn/angular-route/angular-route.min.js"></script>
+    <script src="/jscdn/angular-sanitize/angular-sanitize.min.js"></script>
+
+    <!-- Angular Materialize -->
+    <script src="/jscdn/angular-materialize/src/angular-materialize.js"></script>
+
+    <!-- Aplicacion Angular: Definicionn -->
+    <script src="application/application.js"></script>
+
+    <!-- Aplicacion Angular: Controladores -->
+    <script src="controllers/actions.js"></script>
+    <script src="controllers/diputados.js"></script>
+    <script src="controllers/diputado.js"></script>
+    <script src="controllers/proyectos.js"></script>
+    <script src="controllers/noticias.js"></script>
+    <script src="controllers/fotografias.js"></script>
+    <script src="controllers/videos.js"></script>
+
+
+    <!-- Header -->
+    <div class="row">
+        <div class="col s12 m12 l12 xl12">
+            <ul class="hide-on-small-only center ">
+                <li class=" ">
+                    <h6>
+                        <img src="/imgcdn/jujuy.png " width="42 " class="white circle responsive-img " />
+                    </h6>
+                </li>
+                <li class=" ">
+                    <h5 class="isotipo ">
+                        Legislatura
+                        <small>de Jujuy</small>
+                    </h5>
+                </li>
+            </ul>
+
+            <ul class="hide-on-med-and-up center ">
+                <li class=" ">
+                    <h5>
+                        Legislatura
+                        <small>Jujuy</small>
+                    </h5>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Body -->
+    <div class="row">
+        <div class="col s12 m3 l3 xl2">
+            <div id="sidecard " class="card grey darken-2 white-text">
+                <div class="card-image blue ">
+                    <!-- <img class="responsive-img " src="/img/diputados/{{fotografia}} "/> -->
+                    <img src="/img/diputados/{{fotografia}} " style="width:100%;min-witdh:190px;max-witdh:300px; " />
+                    <h5 class="card-title green ">{{nombre}}</h5>
+                </div>
+                <div class="card-action grey darken-1 ">{{mandato}}</div>
+                <div class="card-action grey darken-2 ">
+                    <center>
+                        <img src="/img/bloques/{{escudo}} " class="circle " style="width:64px " />
+                        <br/>
+                        <h5>{{bloque}}</h5>
+                    </center>
+                </div>
+            </div>
+            <div id="sidecomisiones" class="card grey darken-2 white-text">
+                <div class="card-title " style="margin:15px; ">Comisiones que Integra</div>
+                <div class="card-content ">
+                    <ul>
+                        <li ng-repeat="c in comisiones ">{{c.cargo}} de {{c.comision}}</li>
                     </ul>
                 </div>
-
-                <!-- Grupo de Menu -->
-                <ul ng-controller="actions" class="hide-on-small-only right">
-                    
-                    <!-- Boton Home -->
-                    <li>
-                        <a class="waves-effect waves-light" ng-click="goHome()">
-                            <i class="material-icons right">
-                                home
-                            </i>
-                        </a>
-                    </li>
-
-                    <!-- Boton Refreash -->
-                    <li>
-                        <a class="waves-effect waves-light" ng-click="goRefresh()">
-                            <i class="material-icons">
-                                refresh
-                            </i>
-                        </a>                        
-                    </li>
-
-                    <!-- Boton Diputados -->
-                    <li>
-                        <a class="waves-effect waves-light" ng-click="goDiputados()">
-                            <i class="material-icons">
-                                contacts
-                            </i>
-                        </a>                        
-                    </li>
-
-                </ul>
-
             </div>
-            <div panel-left>
-
-                <div id="sidecard" class="card grey darken-2 white-text">
-                    <div class="card-image blue">
-                        <img class="responsive-img" src="/public/img/diputados/{{fotografia}}"/>
-                        <h5 class="card-title green">{{nombre}}</h5>
-                    </div>
-                    <div class="card-action grey darken-1">{{mandato}}</div>
-                    <div class="card-action grey darken-2">
-                        <center>
-                            <img src="/public/img/bloques/{{escudo}}" class="circle" style="width:64px"/>
-                            <br/>
-                            <h5>{{bloque}}</h5>
-                        </center>
-                    </div>
+            <div id="sidecontacto" class="card grey darken-2 white-text">
+                <div class="card-action grey darken-2 " ng-show="mail ">
+                    <a class="white-text left-align " href="mailto:{{email}} " style="text-transform:lowercase; ">
+                        <i class="small material-icons ">email</i>
+                        <br/> {{email}}
+                    </a>
                 </div>
-
-                <div id="sidecomisiones" class="card grey darken-2 white-text">
-                    <div class="card-title" style="margin:15px;">Comisiones que Integra</div>
-                    <div class="card-content">
-                        <ul>
-                            <li ng-repeat="c in comisiones">{{c.cargo}} de {{c.comision}}</li>
-                        </ul>
-                    </div>
+                <div class="card-action grey darken-2 " ng-show="tel ">
+                    <a class="white-text left-align ">
+                        <i class="small material-icons ">phone</i>
+                        <br/> +54 388 {{telefono}}
+                    </a>
                 </div>
-
-                <div id="sidecontacto" class="card grey darken-2 white-text">
-                    <div class="card-action grey darken-2" ng-show="mail">
-                        <a class="white-text left-align" href="mailto:{{email}}" style="text-transform:lowercase;">
-                            <i class="small material-icons">email</i>
-                            <br/>
-                            {{email}}
-                        </a>
-                    </div>
-                    <div class="card-action grey darken-2" ng-show="tel">
-                        <a class="white-text left-align">
-                            <i class="small material-icons">phone</i>
-                            <br/>
-                            +54 388 {{telefono}}
-                        </a>
-                    </div>
-                    <div class="card-action grey darken-2" ng-show="web">
-                            <a class="white-text left-align" href="{{paginaweb}}" target="_blank" style="text-transform:lowercase;">
-                                <i class="small material-icons">web</i>
-                                <br/>
-                                {{paginaweb}}
-                            </a>
-                    </div>
-                    <div class="card-action grey darken-2" ng-show="face">
-                            <a class="white-text left-align" href="{{facebook}}" target="_blank" style="text-transform:lowercase;">
-                                <i class="small material-icons">person_pin</i>
-                                <br/>
-                                {{facebook}}
-                            </a>
-                    </div>
-                    <div class="card-action grey darken-2" ng-show="twit">
-                            <a class="white-text left-align" href="{{twitter}}" target="_blank" style="text-transform:lowercase;">
-                                <i class="small material-icons">person_pin</i>
-                                <br/>
-                                {{twitter}}
-                            </a>
-                    </div>
-                    <div class="card-action grey darken-2" ng-show="yt">
-                            <a class="white-text left-align" href="{{youtube}}" target="_blank" style="text-transform:lowercase;">
-                                <i class="small material-icons">video_library</i>
-                                <br/>
-                                {{youtube}}
-                            </a>
-                    </div>
-                    <div class="card-action grey darken-2" ng-show="fkr">
-                            <a class="white-text left-align" href="{{flickr}}" target="_blank" style="text-transform:lowercase;">
-                                <i class="small material-icons">video_library</i>
-                                <br/>
-                                {{flickr}}
-                            </a>
-                    </div>
+                <div class="card-action grey darken-2 " ng-show="web ">
+                    <a class="white-text left-align " href="{{paginaweb}} " target="_blank " style="text-transform:lowercase; ">
+                        <i class="small material-icons ">web</i>
+                        <br/> {{paginaweb}}
+                    </a>
                 </div>
-
-
-
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+                <div class="card-action grey darken-2 " ng-show="face ">
+                    <a class="white-text left-align " href="{{facebook}} " target="_blank " style="text-transform:lowercase; ">
+                        <i class="small material-icons ">person_pin</i>
+                        <br/> {{facebook}}
+                    </a>
+                </div>
+                <div class="card-action grey darken-2 " ng-show="twit ">
+                    <a class="white-text left-align " href="{{twitter}} " target="_blank " style="text-transform:lowercase; ">
+                        <i class="small material-icons ">person_pin</i>
+                        <br/> {{twitter}}
+                    </a>
+                </div>
+                <div class="card-action grey darken-2 " ng-show="yt ">
+                    <a class="white-text left-align " href="{{youtube}} " target="_blank " style="text-transform:lowercase; ">
+                        <i class="small material-icons ">video_library</i>
+                        <br/> {{youtube}}
+                    </a>
+                </div>
+                <div class="card-action grey darken-2 " ng-show="fkr ">
+                    <a class="white-text left-align " href="{{flickr}} " target="_blank " style="text-transform:lowercase; ">
+                        <i class="small material-icons ">video_library</i>
+                        <br/> {{flickr}}
+                    </a>
+                </div>
             </div>
+        </div>
+        <div class="col s12 m9 l9 xl10" ng-view></div>
+    </div>
 
-            <div panel-main>
+</body>
 
-                <div ng-view></div> 
-
-            </div>
-
-        </panel-left-main>
-
-    </body>
 </html>
