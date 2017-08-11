@@ -3,9 +3,6 @@ angular
     .config(function($routeProvider) {
         $routeProvider
             .when('/', {
-                redirectTo: '/diputados'
-            })
-            .when('/diputados', {
                 templateUrl: 'views/diputados.html',
                 controller: 'diputados'
             })
@@ -29,5 +26,5 @@ angular
                 templateUrl: 'views/diputado.html',
                 controller: 'diputado'
             })
-            .otherwise({ redirectTo: '/diputados' });
+            .otherwise({ redirectTo: '/' });
     });

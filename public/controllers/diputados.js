@@ -1,9 +1,9 @@
 angular
     .module('diputado')
-    .controller('diputados', function($http, $$scope) {
-        $http
-            .get('/rest/institucion.php/diputados')
-            .success(function(json) {
-                if (json.result) $scope.diputados = json.rows;
-            });
+    .controller('diputados', function() {
+        var loc = window.location.href || document.location.href;
+        var end = loc.indexOf('diputado');
+        var server = loc.substring(0, end) + '#/diputados';
+        window.location.href = server;
+        document.location.href = server;
     });

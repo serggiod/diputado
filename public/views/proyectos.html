@@ -1,138 +1,146 @@
 <div class="row">
 
-	<!-- Menu Local -->
-	<div ng-include src="'views/localmenu.html'"></div>
-	<!-- /Menu Local -->
+    <!-- Menu Local -->
+    <div ng-include src="'views/localmenu.html'"></div>
+    <!-- /Menu Local -->
 
-	<!-- Menu  Proyectos -->
-		<!-- Menu para smarphones. -->
-			<a class="btn waves-effect wave-light left hide-on-med-and-up" ng-click="cambiarTipo('cofirmados')">
+    <!-- Menu  Proyectos -->
+    <!-- Menu para smarphones. -->
+    <a class="btn waves-effect wave-light left hide-on-med-and-up" ng-click="cambiarTipo('cofirmados')">
 				Cofirmados
 			</a>
-			<a class="btn waves-effect wave-light right hide-on-med-and-up" ng-click="cambiarTipo('firmados')">
+    <a class="btn waves-effect wave-light right hide-on-med-and-up" ng-click="cambiarTipo('firmados')">
 				Firmados
 			</a>
-		<!-- Menu para tablets y laptops. -->
-			<nav class="grey lighten-2 hide-on-small-only">
-				<div class="nav-wrapper">
-					<ul class="center">
+    <!-- Menu para tablets y laptops. -->
+    <nav class="grey lighten-2 hide-on-small-only">
+        <div class="nav-wrapper">
+            <ul class="center">
 
-						<li>
-							<a class="waves-effect wave-light btn" ng-click="cambiarTipo('cofirmados')">
+                <li>
+                    <a class="waves-effect wave-light btn" ng-click="cambiarTipo('cofirmados')">
 								Proyectos Cofirmados
-							</a>					
-						</li>
+							</a>
+                </li>
 
-						<li>
-							<a class="waves-effect wave-light btn" ng-click="cambiarTipo('firmados')">
+                <li>
+                    <a class="waves-effect wave-light btn" ng-click="cambiarTipo('firmados')">
 								Proyectos Firmados
 							</a>
-						</li>
+                </li>
 
-					</ul>
-				</div>		
-			</nav>
-	<!-- /Menu Proyectos -->
+            </ul>
+        </div>
+    </nav>
+    <!-- /Menu Proyectos -->
 
-	<!-- Grid Proyectos -->
-		<!-- Proyectos para smarphones -->
-			<div class="col s12 m12 l6 hide-on-med-and-up" ng-repeat="p in proyectos">
+    <!-- Grid Proyectos -->
+    <!-- Proyectos para smarphones -->
+    <div ng-hide="spinner" class="col s12 m12 l6 hide-on-med-and-up" ng-repeat="p in proyectos">
 
-				<div class="card white darken-2 hoverable">
-					
-					<div class="card-action grey lighten-2 grey-text text-darken-1 right-align">
-						<br/>
-						<span style="font-size:1.2em;font-weight:bolder;text-transform:uppercase;">{{p.expediente}}</span>
-						<br/>
-						<span style="font-size:0.9em;font-weight:bolder;font-style:italic;">{{p.tipo}}</span>
-						<br/>
-						<span style="font-size:0.6em;">[ {{p.fecha}} ]</span>
-					</div>
+        <div class="card white darken-2 hoverable">
 
-					<div class="card-action black-text">
-						{{p.proyecto}}
-					</div>
+            <div class="card-action grey lighten-2 grey-text text-darken-1 right-align">
+                <br/>
+                <span style="font-size:1.2em;font-weight:bolder;text-transform:uppercase;">{{p.expediente}}</span>
+                <br/>
+                <span style="font-size:0.9em;font-weight:bolder;font-style:italic;">{{p.tipo}}</span>
+                <br/>
+                <span style="font-size:0.6em;">[ {{p.fecha}} ]</span>
+            </div>
 
-					<div class="card-action blue-text text-darken-2 valign-wrapper" style="cursor:pointer;">
+            <div class="card-action black-text">
+                {{p.proyecto}}
+            </div>
 
-						<a href="/detalle_proyecto.php?p={{p.id}}" class="btn-floating" target="__black">
-							<i class="material-icons white-text">
+            <div class="card-action blue-text text-darken-2 valign-wrapper" style="cursor:pointer;">
+
+                <a href="/detalle_proyecto.php?p={{p.id}}" class="btn-floating" target="__black">
+                    <i class="material-icons white-text">
 								open_in_browser
 							</i>
-						</a>
-						
-						<a href="/img/sesiones/ftp/{{p.id}}/{{p.id}}.pdf" class="btn-floating" target="__black">
-							<i class="material-icons white-text">
+                </a>
+
+                <a href="/img/sesiones/ftp/{{p.id}}/{{p.id}}.pdf" class="btn-floating" target="__black">
+                    <i class="material-icons white-text">
 								description
 							</i>
-						</a>
+                </a>
 
-					</div>
+            </div>
 
-				</div>
-			</div>
+        </div>
+    </div>
 
-		<!-- Proyectos para tablets y laptops -->
-			<table class="table bordered stripped highlight centered hide-on-small-only">
-				<tr class="teal darken-1 white-text">
-					<td>
-						<strong>
+    <!-- Show Spinner -->
+    <div ng-show="spinner">
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
+        <div class="center-align">En unos instantes se cargará el contenido...</div>
+    </div>
+
+    <!-- Proyectos para tablets y laptops -->
+    <table ng-hide="spinner" class="table bordered stripped highlight centered hide-on-small-only">
+        <tr class="teal darken-1 white-text">
+            <td>
+                <strong>
 							EXPEDIENTE				
 						</strong>
-					</td>
-					<td>
-						<strong>
+            </td>
+            <td>
+                <strong>
 							PROYECTO				
 						</strong>
-					</td>
-					<td>
-						<strong>
+            </td>
+            <td>
+                <strong>
 							TIPO				
 						</strong>
-					</td>
-					<td>
-						<strong>
+            </td>
+            <td>
+                <strong>
 							FECHA				
 						</strong>
-					</td>
-					<td>
-						<strong>
+            </td>
+            <td>
+                <strong>
 							ACCIONES				
 						</strong>
-					</td>
-				</tr>
+            </td>
+        </tr>
 
-				<tr ng-repeat="p in proyectos">
-					<td>
-						<strong>
+        <tr ng-repeat="p in proyectos">
+            <td>
+                <strong>
 							{{p.expediente}}
 						</strong>
-					</td>
-					<td>
-						{{p.proyecto}}
-					</td>
-					<td>
-						{{p.tipo}}
-					</td>
-					<td>
-						{{p.fecha}}
-					</td>
-					<td>
-						
-						<a href="/detalle_proyecto.php?p={{p.id}}" class="btn-floating" target="__black">
-							<i class="material-icons white-text">
+            </td>
+            <td>
+                {{p.proyecto}}
+            </td>
+            <td>
+                {{p.tipo}}
+            </td>
+            <td>
+                {{p.fecha}}
+            </td>
+            <td>
+
+                <a href="/detalle_proyecto.php?p={{p.id}}" class="btn-floating" target="__black">
+                    <i class="material-icons white-text">
 								open_in_browser
 							</i>
-						</a>
-						<a href="/img/sesiones/ftp/{{p.expediente}}/{{p.expediente}}.pdf" class="btn-floating" target="__black">
-							<i class="material-icons white-text">
+                </a>
+                <a href="/img/sesiones/ftp/{{p.expediente}}/{{p.expediente}}.pdf" class="btn-floating" target="__black">
+                    <i class="material-icons white-text">
 								description
 							</i>
-						</a>
+                </a>
 
-					</td>
-				</tr>
-			</table>
-	<!-- /Grid Proyectos -->
+            </td>
+        </tr>
+    </table>
+    <!-- /Grid Proyectos -->
 
 </div>

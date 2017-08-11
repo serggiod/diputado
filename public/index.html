@@ -91,8 +91,8 @@
         </div>
 
         <!-- Body -->
-        <div class="row" ng-show="model">
-            <div class="col s12 m3 l3 xl2">
+        <div class="row grey lighten-2" ng-show="model">
+            <div class="col s12 m3 l3 xl2 grey darken-3">
                 <div id="sidecard " class="card grey darken-2 white-text">
                     <div class="card-image blue ">
                         <img class="responsive-img " src="http://www.legislaturajujuy.gov.ar/img/diputados/{{model.fotografia}} " />
@@ -161,7 +161,7 @@
             <div class="col s12 m9 l9 xl10" ng-view></div>
         </div>
 
-        <div class="row" ng-hide="model">
+        <div class="row grey lighten-5" ng-hide="model" style="background-color: #fafafa;">
             <div class="col s12 m12 l12 xl12" ng-view></div>
         </div>
 
