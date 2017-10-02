@@ -1,30 +1,10 @@
 angular
-    .module('diputado', ['ui.materialize', 'ngRoute'])
-    .config(function($routeProvider) {
+    .module('legislaturaweb', ['ngRoute', 'ui.materialize', 'ngSanitize', 'ngAnimate'])
+    .config(function($routeProvider,$httpProvider) {
+        var now = Date.now();
         $routeProvider
-            .when('/', {
-                templateUrl: 'views/diputados.html',
-                controller: 'diputados'
-            })
-            .when('/:uriname/proyectos', {
-                templateUrl: 'views/proyectos.html',
+            .when('/:uriname/proyectos/:numero/:letra/:keyword/:anio/:tipo/:forma/:orden/:ini/:end', {
+                templateUrl: 'views/proyectos.html?'+now+'='+now,
                 controller: 'proyectos'
-            })
-            .when('/:uriname/noticias', {
-                templateUrl: 'views/noticias.html',
-                controller: 'noticias'
-            })
-            .when('/:uriname/fotografias', {
-                templateUrl: 'views/fotografias.html',
-                controller: 'fotografias'
-            })
-            .when('/:uriname/videos', {
-                templateUrl: 'views/videos.html',
-                controller: 'videos'
-            })
-            .when('/:uriname', {
-                templateUrl: 'views/diputado.html',
-                controller: 'diputado'
-            })
-            .otherwise({ redirectTo: '/' });
+            });
     });

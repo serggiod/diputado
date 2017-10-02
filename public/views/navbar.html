@@ -1,0 +1,237 @@
+<style>
+    .logo-container{
+        width:180px;
+        height: 53px;
+        overflow:hidden;
+        margin:5px;
+    }
+    .logo-img{
+        background-color: #ffffff;
+        border-radius: 50%;
+        height:35px;
+        position: relative;
+        top:3px;
+        left:3px;
+    }
+    .logo-text{
+        font-size: 15px;
+        font-weight: bold;
+        position: relative;
+        top: -8px;
+    }
+    .dropdown-position{
+        position: relative;
+        top: 70px;
+        width:250px !important;
+        color: #ffffff !important;
+        background-color: #333333 !important;
+    }
+    .sideback{
+        background-color: #333333 !important;
+    }
+</style>
+<nav class="grey darken-4">
+    <div class="nav-wrapper">
+        <a href="/#/home">
+            <div class="left logo-container">
+                <span class="left">
+                    <img src="/imgcdn/jujuy.png" class="logo-img"/>
+                </span>
+                <span class="right logo-text">
+                    Legislatura de Jujuy
+                </span>
+            </div>
+        </a>
+
+         <!-- Menu para móviles. -->
+         <ul id="dropMenu" class="dropdown-content gray darken-3">
+            <li>
+                <a href="/#/home" class="gray darken-3">
+                    <i class="material-icons left">
+                            home
+                        </i> Inicio
+                </a>
+            </li>
+            <li>
+                <a href="/#/diputados" class="gray darken-3">
+                    <i class="material-icons left">
+                            portrait
+                        </i> Diputados
+                </a>
+            </li>
+            <li>
+                <a href="#/{{uriname}}/proyectos/cofimados/1/10" class="gray darken-3">
+                    <i class="material-icons left">
+                            library_books
+                        </i> Proyectos Cofirmados
+                </a>
+            </li>
+            <li>
+                <a href="#/{{uriname}}/proyectos/firmados/1/10" class="gray darken-3">
+                    <i class="material-icons left">
+                            library_books
+                        </i> Proyectos Firmados
+                </a>
+            </li>
+            <li ng-show="model.paginaweb">
+                <a href="{{model.paginaweb}}" class="gray darken-3">
+                    <i class="material-icons left">
+                        chrome_reader_mode
+                        </i> Página Web
+                </a>
+            </li>
+            <li ng-show="model.facebook">
+                <a href="{{model.facebook}}">
+                    <i class="material-icons left">
+                        person_pin
+  					</i> Facebook
+                </a>
+            </li>
+        </ul>
+        <ul id="slide-out" class="gray darken-4 side-nav sideback">
+            <li>
+                <div id="sidecard " class="card grey darken-2 white-text">
+                    <div class="card-image blue ">
+                        <img class="responsive-img " src="http://www.legislaturajujuy.gov.ar/img/diputados/{{model.fotografia}} " />
+                        <h5 class="card-title green ">{{model.nombre}}</h5>
+                    </div>
+                    <div class="card-action grey darken-1 ">{{model.periodo}}</div>
+                    <div class="card-action grey darken-2 ">
+                        <center>
+                            <img src="http://www.legislaturajujuy.gov.ar/img/bloques/{{model.logo}} " class="circle " style="width:64px " />
+                            <br/>
+                            <h5>{{model.bloque}}</h5>
+                        </center>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div id="sidecomisiones" class="card grey darken-2 white-text">
+                    <div class="card-action grey darken-3" style="margin:15px; ">
+                        <h5>Comisiones que Integra</h5>
+                    </div>
+                    <div class="card-content ">
+                        <ul>
+                            <li ng-repeat="c in model.comisiones">{{c.cargo}} DE {{c.comision}}
+                                <hr>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div id="sidecontacto" class="card grey darken-2 white-text">
+                    <div class="card-action grey darken-2 " ng-show="model.email">
+                        <a class="white-text left-align " href="mailto:{{model.email}} " style="text-transform:lowercase; ">
+                            <i class="small material-icons ">email</i>
+                            <br/> {{model.email}}
+                        </a>
+                    </div>
+                    <div class="card-action grey darken-2 " ng-show="model.telefono">
+                        <a class="white-text left-align ">
+                            <i class="small material-icons ">phone</i>
+                            <br/> +54 388 {{model.telefono}}
+                        </a>
+                    </div>
+                    <div class="card-action grey darken-2 " ng-show="model.paginaweb">
+                        <a class="white-text left-align " href="{{model.paginaweb}} " target="_blank " style="text-transform:lowercase; ">
+                            <i class="small material-icons ">web</i>
+                            <br/> {{model.paginaweb}}
+                        </a>
+                    </div>
+                    <div class="card-action grey darken-2 " ng-show="model.facebook">
+                        <a class="white-text left-align " href="{{model.facebook}} " target="_blank " style="text-transform:lowercase; ">
+                            <i class="small material-icons ">person_pin</i>
+                            <br/> {{facebook}}
+                        </a>
+                    </div>
+                    <div class="card-action grey darken-2 " ng-show="model.twittter">
+                        <a class="white-text left-align " href="{{model.twitter}} " target="_blank " style="text-transform:lowercase; ">
+                            <i class="small material-icons ">person_pin</i>
+                            <br/> {{model.twitter}}
+                        </a>
+                    </div>
+                    <div class="card-action grey darken-2 " ng-show="model.youtube">
+                        <a class="white-text left-align " href="{{model.youtube}} " target="_blank " style="text-transform:lowercase; ">
+                            <i class="small material-icons ">video_library</i>
+                            <br/> {{model.youtube}}
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul class="right hide-on-med-and-up">
+            <li>
+                <a id="menuSidebar" class="button-collapse" data-activates="slide-out">
+                    <i class="material-icons">account_circle</i>
+                </a>
+            </li>
+            <li>
+                <a id="menuMovil" class="dropdown-button" data-activates="dropMenu">
+                    <i class="material-icons">menu</i>
+                </a>
+            </li>
+        </ul>
+        
+
+       
+
+        <!-- Menu para pc -->
+        <ul class="right hide-on-small-only">
+            <li>
+                <a href="/#/home">
+                    <i class="material-icons left">
+  						home
+  					</i> Inicio
+                </a>
+            </li>
+            <li>
+                <a href="/#/diputados">
+                    <i class="material-icons left">
+  						portrait
+  					</i> Diputados
+                </a>
+            </li>
+            <li>
+                <a href="#/{{uriname}}/proyectos/0/_/_/0/cofirmados/T/D/1/10">
+                    <i class="material-icons left">
+  						library_books
+  					</i> Proyectos Cofirmados
+                </a>
+            </li>
+            <li>
+                <a href="#/{{uriname}}/proyectos/0/_/_/0/firmados/T/D/1/10">
+                    <i class="material-icons left">
+  						library_books
+  					</i> Proyectos Firmados
+                </a>
+            </li>
+            <li ng-show="model.paginaweb">
+                <a href="{{model.paginaweb}}" class="gray darken-3">
+                    <i class="material-icons left">
+                        chrome_reader_mode
+                        </i> Página Web
+                </a>
+            </li>
+            <li ng-show="model.facebook">
+                <a href="{{model.facebook}}">
+                    <i class="material-icons left">
+                        person_pin
+  					</i> Facebook
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<script>
+    $("#menuMovil").dropdown({
+        belowOrigin:true,
+        constrainWidth:false
+    });
+
+    $("#menuSidebar").sideNav({
+        menuWidth:300,
+        edge:'left',
+        closeOnClick: true
+    });
+</script>

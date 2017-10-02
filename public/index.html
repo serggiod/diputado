@@ -1,172 +1,70 @@
 <!DOCTYPE html>
-<html lan="es" ng-app="diputado">
+<html lan="es" ng-app="legislaturaweb" ng-controller="diputado">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+        <title>Argentina | Jujuy | {{model.nombre}}</title>
+        <style>
+            body {
+                width: 100%;
+                height: 100%;
+                border: 0;
+                margin: 0;
+            }
+            .panel {
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <title>Argentina | Jujuy | Diputado | {{nombre}}</title>
+        <!-- JSLib: JQuery -->
+        <script src="/jscdn/jquery/dist/jquery.min.js"></script>
+        <script>
+            window.addEventListener('load', function() {
+                $.ajaxSetup({ cache: false });
+                var now = Date.now();
+                var head = document.getElementsByTagName('head')[0];
+                
+                var application = document.createElement('script');
+                application.src = 'application/application.js';
 
-    <style>
-        body {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            margin: 0;
-            background-color: #fff;
-            /*overflow:hidden;*/
-        }
-        
-        .panel {
-            z-index: 1;
-        }
-        
-        .isotipo {
-            line-height: 40px;
-            margin-left: 20px;
-        }
-    </style>
+                var diputado = document.createElement('script');
+                diputado.src = 'controllers/diputado.js?'+now+'='+now;
 
-</head>
+                var proyectos = document.createElement('script');
+                proyectos.src = 'controllers/proyectos.js?'+now+'='+now;
 
-<body class="body">
+                head.appendChild(application);
+                head.appendChild(diputado);
+                head.appendChild(proyectos);
+            });
+        </script>
 
-    <!-- JSLib: JQuery -->
-    <script src="/jscdn/jquery/dist/jquery.min.js"></script>
+        <!-- JSLib: Materialize -->
+        <link rel="stylesheet" type="text/css" href="/jscdn/Materialize/dist/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script type="text/javascript" src="/jscdn/Materialize/dist/js/materialize.min.js"></script>
 
-    <!-- JSLib: Materialize -->
-    <link rel="stylesheet" type="text/css" href="/jscdn/Materialize/dist/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script type="text/javascript" src="/jscdn/Materialize/dist/js/materialize.min.js"></script>
+        <!-- JSLib: Angular -->
+        <script src="/jscdn/angular/angular.min.js"></script>
+        <script src="/jscdn/angular-route/angular-route.min.js"></script>
+        <script src="/jscdn/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="/jscdn/angular-animate/angular-animate.min.js"></script>
 
-    <!-- JSLib: Angular -->
-    <script src="/jscdn/angular/angular.min.js"></script>
-    <script src="/jscdn/angular-route/angular-route.min.js"></script>
-    <!-- <script src="/jscdn/angular-sanitize/angular-sanitize.min.js"></script>-->
+        <!-- Angular Materialize -->
+        <script src="/jscdn/angular-materialize/src/angular-materialize.js"></script>
 
-    <!-- Angular Materialize -->
-    <script src="/jscdn/angular-materialize/src/angular-materialize.js"></script>
-
-    <!-- Aplicacion Angular: Definicionn -->
-    <script src="application/application.js"></script>
-
-    <!-- Aplicacion Angular: Controladores -->
-    <script src="controllers/main.js"></script>
-    <script src="controllers/actions.js"></script>
-    <script src="controllers/diputados.js"></script>
-    <script src="controllers/diputado.js"></script>
-    <script src="controllers/proyectos.js"></script>
-    <script src="controllers/noticias.js"></script>
-    <script src="controllers/fotografias.js"></script>
-    <script src="controllers/videos.js"></script>
-
-
-    <ng-controller ng-controller="main">
-
-        <!-- Header -->
-        <div class="row">
-            <div class="col s12 m12 l12 xl12">
-                <ul class="hide-on-small-only center ">
-                    <li class=" ">
-                        <h6>
-                            <img src="/imgcdn/jujuy.png " width="42 " class="white circle responsive-img " />
-                        </h6>
-                    </li>
-                    <li class=" ">
-                        <h5 class="isotipo ">
-                            Legislatura
-                            <small>de Jujuy</small>
-                        </h5>
-                    </li>
-                </ul>
-
-                <ul class="hide-on-med-and-up center ">
-                    <li class=" ">
-                        <h5>
-                            Legislatura
-                            <small>Jujuy</small>
-                        </h5>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <!-- Menu Local -->
+        <ng-include src="'views/navbar.html?'+Date.now()+'='+Date.now()"></ng-include>
 
         <!-- Body -->
-        <div class="row grey lighten-2" ng-show="model">
-            <div class="col s12 m3 l3 xl2 grey darken-3">
-                <div id="sidecard " class="card grey darken-2 white-text">
-                    <div class="card-image blue ">
-                        <img class="responsive-img " src="http://www.legislaturajujuy.gov.ar/img/diputados/{{model.fotografia}} " />
-                        <h5 class="card-title green ">{{model.nombre}}</h5>
-                    </div>
-                    <div class="card-action grey darken-1 ">{{model.periodo}}</div>
-                    <div class="card-action grey darken-2 ">
-                        <center>
-                            <img src="http://www.legislaturajujuy.gov.ar/img/bloques/{{model.logo}} " class="circle " style="width:64px " />
-                            <br/>
-                            <h5>{{model.bloque}}</h5>
-                        </center>
-                    </div>
-                </div>
-                <div id="sidecomisiones" class="card grey darken-2 white-text">
-                    <div class="card-action grey darken-3" style="margin:15px; ">
-                        <h5>Comisiones que Integra</h5>
-                    </div>
-                    <div class="card-content ">
-                        <ul>
-                            <li ng-repeat="c in model.comisiones">{{c.cargo}} DE {{c.comision}}
-                                <hr>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="sidecontacto" class="card grey darken-2 white-text">
-                    <div class="card-action grey darken-2 " ng-show="model.email">
-                        <a class="white-text left-align " href="mailto:{{model.email}} " style="text-transform:lowercase; ">
-                            <i class="small material-icons ">email</i>
-                            <br/> {{model.email}}
-                        </a>
-                    </div>
-                    <div class="card-action grey darken-2 " ng-show="model.telefono">
-                        <a class="white-text left-align ">
-                            <i class="small material-icons ">phone</i>
-                            <br/> +54 388 {{model.telefono}}
-                        </a>
-                    </div>
-                    <div class="card-action grey darken-2 " ng-show="model.paginaweb">
-                        <a class="white-text left-align " href="{{model.paginaweb}} " target="_blank " style="text-transform:lowercase; ">
-                            <i class="small material-icons ">web</i>
-                            <br/> {{model.paginaweb}}
-                        </a>
-                    </div>
-                    <div class="card-action grey darken-2 " ng-show="model.facebook">
-                        <a class="white-text left-align " href="{{model.facebook}} " target="_blank " style="text-transform:lowercase; ">
-                            <i class="small material-icons ">person_pin</i>
-                            <br/> {{facebook}}
-                        </a>
-                    </div>
-                    <div class="card-action grey darken-2 " ng-show="model.twittter">
-                        <a class="white-text left-align " href="{{model.twitter}} " target="_blank " style="text-transform:lowercase; ">
-                            <i class="small material-icons ">person_pin</i>
-                            <br/> {{model.twitter}}
-                        </a>
-                    </div>
-                    <div class="card-action grey darken-2 " ng-show="model.youtube">
-                        <a class="white-text left-align " href="{{model.youtube}} " target="_blank " style="text-transform:lowercase; ">
-                            <i class="small material-icons ">video_library</i>
-                            <br/> {{model.youtube}}
-                        </a>
-                    </div>
-                </div>
+        <div class="row grey darken-3 body">
+            <div class="col s12 m2 l2 xl2 grey darken-3">
+                <ng-include src="'views/aside.html?'+Date.now()+'='+Date.now()"></ng-include>
             </div>
-            <div class="col s12 m9 l9 xl10" ng-view></div>
+            <div class="col s12 m10 l10 x10 grey lighten-3" ng-view></div>
         </div>
 
-        <div class="row grey lighten-5" ng-hide="model" style="background-color: #fafafa;">
-            <div class="col s12 m12 l12 xl12" ng-view></div>
-        </div>
-
-    </ng-controller>
-
-</body>
-
+    </body>
 </html>

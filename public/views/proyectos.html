@@ -1,41 +1,144 @@
+<style>
+    .btn-pro-pag-width{
+        width: 10px !important;
+    }
+    .btn-pro-width{
+        width: 40px;
+        height: 40px;
+        padding: 0px;
+        text-align: center;
+    }
+    .btn-pro-circle{
+        position: relative;
+        top: 5px;
+        margin: 5px;
+        border-radius: 50%;
+    }
+    .btn-pro-icon{
+        position: relative;
+        top: -12px;
+        left: -10px;
+    }
+    .btn-pro-a{
+        position: relative;
+        top: -12px;
+        left: 0px;
+        font-weight: bold;
+    }
+    .btn-pro-imputs-groups-ini{
+        height: 40px; 
+        padding: 0;
+        text-align: center;
+        position: relative;
+        top: 12px;
+        border-radius: 50% 0% 0% 50%; 
+    }
+    .btn-pro-imputs-groups-fields{
+        width: 60px;
+        height: 40px;
+        padding: 0;
+        text-align: center;
+        position: relative;
+        top: 12px;
+    }
+    .btn-pro-imputs-groups-title{
+        height: 40px;
+        padding: 0;
+        text-align: center;
+        position: relative;
+        top: 12px;
+    }
+    .btn-pro-imputs-groups-placeholder{
+        font-weight: bold;
+        margin: 5px;
+        position:relative;
+        top:-10px;
+    }
+    .btn-pro-imputs-groups-input{
+        color:#000;
+        background-color:#fff !important;
+        width: 50px !important;
+        height: 26px !important;
+        position: relative;
+        top: -12px;
+        text-align: center !important;
+        text-transform: uppercase !important;
+    }
+    .btn-pro-imputs-groups-end{
+        width: 40px;
+        height: 40px; 
+        padding: 0;
+        text-align: center;
+        position: relative;
+        top: 12px;
+        border-radius: 0% 50% 50% 0%; 
+    }
+</style>
+<!-- Show Spinner -->
+<div ng-show="spinner">
+    <div class="progress">
+        <div class="indeterminate"></div>
+    </div>
+    <div class="center-align">En unos instantes se cargará el contenido...</div>
+</div>
+
 <div class="row">
 
-    <!-- Menu Local -->
-    <div ng-include src="'views/localmenu.html'"></div>
-    <!-- /Menu Local -->
-
-    <!-- Menu  Proyectos -->
-    <!-- Menu para smarphones. -->
-    <a class="btn waves-effect wave-light left hide-on-med-and-up" ng-click="cambiarTipo('cofirmados')">
-				Cofirmados
-			</a>
-    <a class="btn waves-effect wave-light right hide-on-med-and-up" ng-click="cambiarTipo('firmados')">
-				Firmados
-			</a>
-    <!-- Menu para tablets y laptops. -->
-    <nav class="grey lighten-2 hide-on-small-only">
+    <!-- Paginador para smartphones -->
+    <!--nav class="grey lighten-2 hide-on-med-and-up">
         <div class="nav-wrapper">
-            <ul class="center">
-
+            <ul class="left">
                 <li>
-                    <a class="waves-effect wave-light btn" ng-click="cambiarTipo('cofirmados')">
-								Proyectos Cofirmados
-							</a>
+                    <h5 style="color:#00897b;">
+                        Proyectos <span style="text-transform:capitalize;">{{tipo}}</span>
+                    </h5>
                 </li>
-
-                <li>
-                    <a class="waves-effect wave-light btn" ng-click="cambiarTipo('firmados')">
-								Proyectos Firmados
-							</a>
-                </li>
-
             </ul>
         </div>
     </nav>
-    <!-- /Menu Proyectos -->
+    <nav class="grey lighten-2 hide-on-med-and-up">
+        <div class="nav-wrapper">
+            <ul class="left">
+                <li class="btn-pro-pag-width">
+                    <!--a href="#/{{uriname}}/proyectos/{{tipo}}/1/10/0" class="grey-text text-darken-2" tooltipped data-position="top" data-delay="500" data-tooltip="Primera página.">
+                    <a ng-click="getProyectos()" class="grey-text text-darken-2" tooltipped data-position="top" data-delay="500" data-tooltip="Primera página.">
+                        <i class="material-icons">
+                            skip_previous
+                        </i>
+                    </a>
+                </li>
+                <li class="btn-pro-pag-width">
+                    <!--a href="#/{{uriname}}/proyectos/{{tipo}}/{{prev}}/10" class="grey-text text-darken-2" tooltipped data-position="top" data-delay="500" data-tooltip="Anterior página.">
+                    <a ng-click="getProyectos()" class="grey-text text-darken-2" tooltipped data-position="top" data-delay="500" data-tooltip="Anterior página.">
+                        <i class="material-icons">
+                            fast_rewind
+                        </i>
+                    </a>
+                </li>
+                <li class="grey-text text-darken-2">
+                    {{ini}}/{{endF}}
+                </li>
+                <li class="btn-pro-pag-width">
+                    <!--a href="#/{{uriname}}/proyectos/{{tipo}}/{{sig}}/10" class="grey-text text-darken-2" tooltipped data-position="top" data-delay="500" data-tooltip="Siguiente página.">
+                    <a ng-click="getProyectos()" class="grey-text text-darken-2" tooltipped data-position="top" data-delay="500" data-tooltip="Siguiente página.">
+                        <i class="material-icons">
+                            fast_forward
+                        </i>
+                    </a>
+                </li>
+                <li class="btn-pro-pag-width">
+                    <!--a href="#/{{uriname}}/proyectos/{{tipo}}/{{endF}}/10" class="grey-text text-darken-2" tooltipped data-position="top" data-delay="500" data-tooltip="Ultima página.">
+                    <a ng-click="getProyectos()" class="grey-text text-darken-2" tooltipped data-position="top" data-delay="500" data-tooltip="Ultima página.">
+                        <i class="material-icons">
+                            skip_next
+                        </i>
+                    </a>
+                </li>				
+            </ul>
+        </div>
+    </nav-->
 
-    <!-- Grid Proyectos -->
-    <!-- Proyectos para smarphones -->
+    <!-- Proyectos para smarphones
     <div ng-hide="spinner" class="col s12 m12 l6 hide-on-med-and-up" ng-repeat="p in proyectos">
 
         <div class="card white darken-2 hoverable">
@@ -70,18 +173,118 @@
             </div>
 
         </div>
-    </div>
+    </div-->
 
-    <!-- Show Spinner -->
-    <div ng-show="spinner">
-        <div class="progress">
-            <div class="indeterminate"></div>
+    <!-- tablets y laptops -->
+    <!-- Titulo -->
+    <nav class="grey lighten-2 hide-on-small-only">
+        <div class="nav-wrapper">
+            <ul class="left">
+                <li>
+                    <h5 style="color:#00897b;">
+                        Proyectos <span style="text-transform:capitalize;">{{tipo}}</span>
+                    </h5>
+                </li>
+            </ul>
         </div>
-        <div class="center-align">En unos instantes se cargará el contenido...</div>
-    </div>
-
-    <!-- Proyectos para tablets y laptops -->
-    <table ng-hide="spinner" class="table bordered stripped highlight centered hide-on-small-only">
+    </nav>
+    <!-- Herramientas -->
+    <nav class="grey lighten-2 hide-on-small-only">
+        <div class="nav-wrapper">
+            <ul class="left">
+                <li class="waves-effect" tooltipped data-position="top" data-delay="500" data-tooltip="Primera página.">
+                    <a ng-click="primero()" class="grey-text text-darken-2"  message="Página {{actualInt}} solicitada." duration="4000" toastclass="rounded" toast="click">
+                        <i class="material-icons">
+                            skip_previous
+                        </i>
+                    </a>
+                </li>
+                <li class="waves-effect" tooltipped data-position="top" data-delay="500" data-tooltip="Anterior página.">
+                    <a ng-click="anterior()" class="grey-text text-darken-2" message="Página {{actualInt}} solicitada." duration="4000" toastclass="rounded" toast="click">
+                        <i class="material-icons">
+                            fast_rewind
+                        </i>
+                    </a>
+                </li>
+                <li class="waves-effect">
+                        <a class="grey-text text-darken-2">
+                            {{actualInt}}/{{ultimoInt}}
+                        </a>
+                    </li>
+                <li class="waves-effect" tooltipped data-position="top" data-delay="500" data-tooltip="Siguiente página.">
+                    <a ng-click="siguiente()" class="grey-text text-darken-2" message="Página {{actualInt}} solicitada." duration="4000" toastclass="rounded" toast="click">
+                        <i class="material-icons">
+                            fast_forward
+                        </i>
+                    </a>
+                </li>
+                <li class="waves-effect" tooltipped data-position="top" data-delay="500" data-tooltip="Ultima página.">
+                    <a ng-click="ultimo()" class="grey-text text-darken-2" message="Página {{actualInt}} solicitada." duration="4000" toastclass="rounded" toast="click">
+                        <i class="material-icons">
+                            skip_next
+                        </i>
+                    </a>
+                </li>
+                <li class="waves-effect">
+                    <nav class="grey lighten-2">
+                        <ul class="left">
+                            <li class="teal lighten-1 btn-pro-imputs-groups-ini">
+                                <span class="btn-pro-imputs-groups-placeholder">
+                                    NRO
+                                </span>
+                            </li>
+                            <li class="teal lighten-1 btn-pro-imputs-groups-fields" tooltipped data-position="top" data-delay="500" data-tooltip="Filtro: Número.">
+                                <input id="numero" class="btn-pro-imputs-groups-input" type="number" min="0" max="9999">
+                            </li>
+                            <li class="teal lighten-1 btn-pro-imputs-groups-title">
+                                <span class="btn-pro-imputs-groups-placeholder">
+                                    LETRA
+                                </span>
+                            </li>
+                            <li class="teal lighten-1 btn-pro-imputs-groups-fields" tooltipped data-position="top" data-delay="500" data-tooltip="Filtro: Letra.">
+                                <input id="letra" class="btn-pro-imputs-groups-input" type="text" maxlength="3">
+                            </li>
+                            <li class="teal lighten-1 btn-pro-imputs-groups-title">
+                                <span class="btn-pro-imputs-groups-placeholder">
+                                    KEYWORD
+                                </span>
+                            </li>
+                            <li class="teal lighten-1 btn-pro-imputs-groups-fields">
+                                <input id="keyword" class="btn-pro-imputs-groups-input" type="text" maxlength="10" tooltipped data-position="top" data-delay="500" data-tooltip="Filtro: Palabra clave.">
+                            </li>
+                            <li class="teal lighten-1 btn-pro-imputs-groups-title">
+                                <span class="btn-pro-imputs-groups-placeholder">
+                                    AÑO
+                                </span>
+                            </li>
+                            <li class="teal lighten-1 btn-pro-imputs-groups-fields">
+                                <input id="anio" class="btn-pro-imputs-groups-input" type="number" min="1983" max=""  tooltipped data-position="top" data-delay="500" data-tooltip="Filtro: Año.">
+                            </li>
+                            <li class="waves-effect teal lighten-1 btn-pro-imputs-groups-end" tooltipped data-position="top" data-delay="500" data-tooltip="Acción: Aplicar filtros.">
+                                <a ng-click="getProyectos()">
+                                    <i class="material-icons btn-pro-icon">check_circle</i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li class="teal lighten-1 btn-pro-width btn-pro-circle">
+                    <a class="dropdown-button btn-pro-a" dropdown data-activates="filtroForma" data-belowOrigin="true" data-constrainWidth="false" data-hover="true">{{forma}}</a>
+                    <ul id="filtroForma" class="dropdown-content">
+                        <li tooltipped data-position="top" data-delay="500" data-tooltip="Filtro: Ver todos los proyectos."          ><a ng-click="cambiarForma('T')" message="Filtro: Ver todos los proyectos."           duration="4000" toastclass="rounded" toast="click">Todas</a></li>
+                        <li tooltipped data-position="top" data-delay="500" data-tooltip="Filtro: Ver solo proyectos de Ley."        ><a ng-click="cambiarForma('L')" message="Filtro: Ver solo proyectos de Ley."         duration="4000" toastclass="rounded" toast="click">Leyes</a></li>
+                        <li tooltipped data-position="top" data-delay="500" data-tooltip="Filtro: Ver solo proyectos de Resolución." ><a ng-click="cambiarForma('R')" message="Filtro: Ver solo proyectos de Resolución."  duration="4000" toastclass="rounded" toast="click">Resoluciones</a></li>
+                        <li tooltipped data-position="top" data-delay="500" data-tooltip="Filtro: Ver solo proyectos de Declaración."><a ng-click="cambiarForma('D')" message="Filtro: Ver solo proyectos de Declaración." duration="4000" toastclass="rounded" toast="click">Declaraciones</a></li>
+                    </ul>
+                </li>
+                <li class="waves-effect teal lighten-1 btn-pro-width btn-pro-circle" tooltipped data-position="top" data-delay="500" data-tooltip="Ordenar: Nuevos primero.">  <a ng-click="cambiarOrden('D')" message="Filtro: Nuevos primero."     duration="4000" toastclass="rounded" toast="click"><i class="material-icons btn-pro-icon">keyboard_arrow_down</i></a></li>
+                <li class="waves-effect teal lighten-1 btn-pro-width btn-pro-circle" tooltipped data-position="top" data-delay="500" data-tooltip="Ordenar: Nuevos al último."><a ng-click="cambiarOrden('A')" message="Filtro: Nuevos al último."   duration="4000" toastclass="rounded" toast="click"><i class="material-icons btn-pro-icon">keyboard_arrow_up</i></a></li>
+                <li class="waves-effect teal lighten-1 btn-pro-width btn-pro-circle" tooltipped data-position="top" data-delay="500" data-tooltip="Quitar filtros.">           <a ng-click="quitarFiltros()" message="Se han quitado los filtros." duration="4000" toastclass="rounded" toast="click"><i class="material-icons btn-pro-icon">cancel</i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Proyectos -->
+    <!--table ng-hide="spinner" class="table bordered stripped highlight centered hide-on-small-only">
         <tr class="teal darken-1 white-text">
             <td>
                 <strong>
@@ -140,7 +343,6 @@
 
             </td>
         </tr>
-    </table>
-    <!-- /Grid Proyectos -->
+    </table-->
 
 </div>
