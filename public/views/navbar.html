@@ -43,139 +43,151 @@
             </div>
         </a>
 
-         <!-- Menu para móviles. -->
-         <ul id="dropMenu" class="dropdown-content gray darken-3">
-            <li>
-                <a href="/#/home" class="gray darken-3">
-                    <i class="material-icons left">
-                            home
-                        </i> Inicio
-                </a>
-            </li>
-            <li>
-                <a href="/#/diputados" class="gray darken-3">
-                    <i class="material-icons left">
-                            portrait
-                        </i> Diputados
-                </a>
-            </li>
-            <li>
-                <a href="#/{{uriname}}/proyectos/cofimados/1/10" class="gray darken-3">
-                    <i class="material-icons left">
-                            library_books
-                        </i> Proyectos Cofirmados
-                </a>
-            </li>
-            <li>
-                <a href="#/{{uriname}}/proyectos/firmados/1/10" class="gray darken-3">
-                    <i class="material-icons left">
-                            library_books
-                        </i> Proyectos Firmados
-                </a>
-            </li>
-            <li ng-show="model.paginaweb">
-                <a href="{{model.paginaweb}}" class="gray darken-3">
-                    <i class="material-icons left">
-                        chrome_reader_mode
-                        </i> Página Web
-                </a>
-            </li>
-            <li ng-show="model.facebook">
-                <a href="{{model.facebook}}">
-                    <i class="material-icons left">
-                        person_pin
-  					</i> Facebook
-                </a>
-            </li>
-        </ul>
-        <ul id="slide-out" class="gray darken-4 side-nav sideback">
-            <li>
-                <div id="sidecard " class="card grey darken-2 white-text">
-                    <div class="card-image blue ">
-                        <img class="responsive-img " src="http://www.legislaturajujuy.gov.ar/img/diputados/{{model.fotografia}} " />
-                        <h5 class="card-title green ">{{model.nombre}}</h5>
-                    </div>
-                    <div class="card-action grey darken-1 ">{{model.periodo}}</div>
-                    <div class="card-action grey darken-2 ">
-                        <center>
-                            <img src="http://www.legislaturajujuy.gov.ar/img/bloques/{{model.logo}} " class="circle " style="width:64px " />
-                            <br/>
-                            <h5>{{model.bloque}}</h5>
-                        </center>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div id="sidecomisiones" class="card grey darken-2 white-text">
-                    <div class="card-action grey darken-3" style="margin:15px; ">
-                        <h5>Comisiones que Integra</h5>
-                    </div>
-                    <div class="card-content ">
-                        <ul>
-                            <li ng-repeat="c in model.comisiones">{{c.cargo}} DE {{c.comision}}
-                                <hr>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div id="sidecontacto" class="card grey darken-2 white-text">
-                    <div class="card-action grey darken-2 " ng-show="model.email">
-                        <a class="white-text left-align " href="mailto:{{model.email}} " style="text-transform:lowercase; ">
-                            <i class="small material-icons ">email</i>
-                            <br/> {{model.email}}
-                        </a>
-                    </div>
-                    <div class="card-action grey darken-2 " ng-show="model.telefono">
-                        <a class="white-text left-align ">
-                            <i class="small material-icons ">phone</i>
-                            <br/> +54 388 {{model.telefono}}
-                        </a>
-                    </div>
-                    <div class="card-action grey darken-2 " ng-show="model.paginaweb">
-                        <a class="white-text left-align " href="{{model.paginaweb}} " target="_blank " style="text-transform:lowercase; ">
-                            <i class="small material-icons ">web</i>
-                            <br/> {{model.paginaweb}}
-                        </a>
-                    </div>
-                    <div class="card-action grey darken-2 " ng-show="model.facebook">
-                        <a class="white-text left-align " href="{{model.facebook}} " target="_blank " style="text-transform:lowercase; ">
-                            <i class="small material-icons ">person_pin</i>
-                            <br/> {{facebook}}
-                        </a>
-                    </div>
-                    <div class="card-action grey darken-2 " ng-show="model.twittter">
-                        <a class="white-text left-align " href="{{model.twitter}} " target="_blank " style="text-transform:lowercase; ">
-                            <i class="small material-icons ">person_pin</i>
-                            <br/> {{model.twitter}}
-                        </a>
-                    </div>
-                    <div class="card-action grey darken-2 " ng-show="model.youtube">
-                        <a class="white-text left-align " href="{{model.youtube}} " target="_blank " style="text-transform:lowercase; ">
-                            <i class="small material-icons ">video_library</i>
-                            <br/> {{model.youtube}}
-                        </a>
-                    </div>
-                </div>
-            </li>
-        </ul>
+        <!-- Smartphone. -->
+        <!--ng-include src="'views/side-smart.html'"></ng-include-->
         <ul class="right hide-on-med-and-up">
             <li>
-                <a id="menuSidebar" class="button-collapse" data-activates="slide-out">
+                <a class="button-collapse" data-activates="slide-out" data-sidenav="left" data-menuwidth="300" data-closeonclick="false">
                     <i class="material-icons">account_circle</i>
                 </a>
+                <ul id="slide-out" class="side-nav grey darken-3">
+                    <li>
+                        <div class="card grey darken-2 white-text">
+                            <div class="card-action grey darken-3" style="margin:5px;">
+                                <h5>Perfil</h5>
+                            </div>
+                            <div class="card-image blue ">
+                                <img class="responsive-img " src="http://www.legislaturajujuy.gov.ar/img/diputados/{{model.fotografia}}" />
+                            </div>
+                            <div class="card-action green">
+                                <h5 class="card-title green ">{{model.nombre}}</h5>
+                            </div>
+                            <div class="card-action grey darken-1 ">{{model.periodo}}</div>
+                            <div class="card-action grey darken-2 ">
+                                <center>
+                                    <img src="http://www.legislaturajujuy.gov.ar/img/bloques/{{model.logo}}" class="circle " style="width:64px " />
+                                    <br/>
+                                    <h5>{{model.bloque}}</h5>
+                                </center>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="card grey darken-2 white-text">
+                            <div class="card-action grey darken-3" style="margin:5px;">
+                                <h5>Comisiones</h5>
+                            </div>
+                            <div class="card-content">
+                                <ul>
+                                    <li ng-repeat="c in model.comisiones">
+                                        {{c.cargo}} DE {{c.comision}}
+                                        <hr/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="card grey darken-2 white-text">
+                            <div class="card-action grey darken-3" style="margin:5px;">
+                                <h5>Contacto</h5>
+                            </div>
+                            <div class="card-content">
+                                <ul>
+                                    <li class="collection-item" ng-show="model.email">
+                                        <a class="white-text left-align valign-wrapper" href="mailto:{{model.email}}">
+                                            <i class="small material-icons">email</i><span class="truncate">{{model.email}}</span>
+                                        </a>
+                                        <hr/>
+                                    </li>
+                                    <li class="collection-item" ng-show="model.telefono">
+                                        <a class="white-text left-align valign-wrapper" href="tel:388{{model.telefono}}">
+                                            <i class="small material-icons">phone</i><span class="truncate">388{{model.telefono}}</span>
+                                        </a>
+                                        <hr/>
+                                    </li>
+                                    <li class="collection-item" ng-show="model.paginaweb">
+                                        <a class="white-text left-align valign-wrapper" href="{{model.paginaweb}}" target="__blank">
+                                            <i class="small material-icons">web</i><span class="truncate">{{model.paginaweb}}</span>
+                                        </a>
+                                        <hr/>
+                                    </li>
+                                    <li class="collection-item" ng-show="model.facebook">
+                                        <a class="white-text left-align valign-wrapper" href="{{model.facebook}}" target="__blank">
+                                            <i class="small material-icons">person_pin</i><span class="truncate">{{model.facebook}}</span>
+                                        </a>
+                                        <hr/>
+                                    </li>
+                                    <li class="collection-item" ng-show="model.twittter">
+                                        <a class="white-text left-align valign-wrapper" href="{{model.twitter}}" target="__blank">
+                                            <i class="small material-icons">person_pin</i><span class="truncate">{{model.twitter}}</span>
+                                        </a>
+                                        <hr/>
+                                    </li>
+                                    <li class="collection-item" ng-show="model.youtube">
+                                        <a class="white-text left-align valign-wrapper" href="{{model.youtube}}" target="__blank">
+                                            <i class="small material-icons">video_library</i><span class="truncate">{{model.youtube}}</span>
+                                        </a>
+                                        <hr/>
+                                    </li>
+                                </ul>
+                        
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </li>
             <li>
-                <a id="menuMovil" class="dropdown-button" data-activates="dropMenu">
+                <a id="menuMovil"   class="dropdown-button" dropdown data-activates="dropMenu"  data-belowOrigin="true" data-constrainWidth="false" data-hover="true">
                     <i class="material-icons">menu</i>
                 </a>
+                <ul id="dropMenu" class="dropdown-content gray darken-3">
+                    <li>
+                        <a href="/#/home" class="gray darken-3">
+                            <i class="material-icons left">
+                                    home
+                                </i> Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/#/diputados" class="gray darken-3">
+                            <i class="material-icons left">
+                                    portrait
+                                </i> Diputados
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#/{{uriname}}/proyectos/0/_/_/0/cofirmados/T/D/1/10" class="gray darken-3">
+                            <i class="material-icons left">
+                                    library_books
+                                </i> Proyectos Cofirmados
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#/{{uriname}}/proyectos/0/_/_/0/firmados/T/D/1/10" class="gray darken-3">
+                            <i class="material-icons left">
+                                    library_books
+                                </i> Proyectos Firmados
+                        </a>
+                    </li>
+                    <li ng-show="model.paginaweb">
+                        <a href="{{model.paginaweb}}" class="gray darken-3">
+                            <i class="material-icons left">
+                                chrome_reader_mode
+                                </i> Página Web
+                        </a>
+                    </li>
+                    <li ng-show="model.facebook">
+                        <a href="{{model.facebook}}">
+                            <i class="material-icons left">
+                                person_pin
+                                </i> Facebook
+                        </a>
+                    </li>
+                </ul>
             </li>
         </ul>
         
-
-       
-
         <!-- Menu para pc -->
         <ul class="right hide-on-small-only">
             <li>
@@ -224,14 +236,5 @@
     </div>
 </nav>
 <script>
-    $("#menuMovil").dropdown({
-        belowOrigin:true,
-        constrainWidth:false
-    });
 
-    $("#menuSidebar").sideNav({
-        menuWidth:300,
-        edge:'left',
-        closeOnClick: true
-    });
 </script>
