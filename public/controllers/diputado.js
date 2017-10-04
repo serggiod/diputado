@@ -1,14 +1,12 @@
 angular
     .module('legislaturaweb')
-    .controller('diputado', function($http, $scope, $routeParams, $location) {
+    .controller('diputado', function($http, $scope, $location) {
         $scope.init = function(){
             var loc = document.location.href || window.location.href;
-            $scope.uriname = $routeParams.uriname;
-            if($scope.uriname===undefined){
-                var index  = loc.indexOf('/#/') +3;
-                $scope.uriname = loc.substr(index);
-                if(index=$scope.uriname.indexOf('/')) $scope.uriname = $scope.uriname.substr(0,index);
-            }
+            var index  = loc.indexOf('/#/') +3;
+            $scope.uriname = loc.substr(index);
+            index=$scope.uriname.indexOf('/')
+            if(index>=1) $scope.uriname = $scope.uriname.substr(0,index);
             uri = '/rest/diputados.php/diputado/' + $scope.uriname;
             $http
                 .get(uri)

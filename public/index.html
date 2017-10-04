@@ -20,26 +20,6 @@
 
         <!-- JSLib: JQuery -->
         <script src="/jscdn/jquery/dist/jquery.min.js"></script>
-        <script>
-            window.addEventListener('load', function() {
-                $.ajaxSetup({ cache: false });
-                var now = Date.now();
-                var head = document.getElementsByTagName('head')[0];
-                
-                var application = document.createElement('script');
-                application.src = 'application/application.js';
-
-                var diputado = document.createElement('script');
-                diputado.src = 'controllers/diputado.js?'+now+'='+now;
-
-                var proyectos = document.createElement('script');
-                proyectos.src = 'controllers/proyectos.js?'+now+'='+now;
-
-                head.appendChild(application);
-                head.appendChild(diputado);
-                head.appendChild(proyectos);
-            });
-        </script>
 
         <!-- JSLib: Materialize -->
         <link rel="stylesheet" type="text/css" href="/jscdn/Materialize/dist/css/materialize.min.css">
@@ -57,6 +37,11 @@
 
         <!-- Menu Local -->
         <ng-include src="'views/navbar.html?'+Date.now()+'='+Date.now()"></ng-include>
+
+        <!-- Application -->
+        <script src="application/application.js"></script>
+        <script src="controllers/diputado.js"></script>
+        <script src="controllers/proyectos.js"></script>
 
         <!-- Body -->
         <div class="row grey darken-3 body">

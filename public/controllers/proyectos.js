@@ -52,14 +52,54 @@ angular
             return uri;
         };
 
+        
+
+        $scope.primero = function(){
+            $scope.actualInt=1;
+            $scope.getProyectos();
+            Materialize.toast('Página ' + $scope.actualInt + ' solicitada.',4000);
+        };
+
+        $scope.anterior = function(){
+            $scope.actualInt--;
+            if($scope.actualInt<=0) $scope.actualInt = 1;
+            $scope.getProyectos();
+            Materialize.toast('Página ' + $scope.actualInt + ' solicitada.',4000,'rounded');
+        };
+
+        $scope.siguiente = function($event){
+            $scope.actualInt++;
+            if($scope.actualInt>$scope.ultimoInt) $scope.actualInt = $scope.ultimoInt;
+            $scope.getProyectos();
+            Materialize.toast('Página ' + $scope.actualInt + ' solicitada.',4000,'rounded');
+        };
+
+        $scope.ultimo = function(){
+            $scope.actualInt = $scope.ultimoInt;
+            $scope.getProyectos();
+            Materialize.toast('Página ' + $scope.actualInt + ' solicitada.',4000,'rounded');
+        };
+
+        $scope.aplicarFiltros = function(forma){
+            $scope.forma = forma;
+            $scope.getProyectos();
+            Materialize.toast('Filtro: Aplicando filtros especiales.',4000,'rounded');
+        };
+
         $scope.cambiarForma = function(forma){
             $scope.forma = forma;
             $scope.getProyectos();
+            if(forma=='T') Materialize.toast('Filtro: Ver todos los proyectos.',4000,'rounded');
+            if(forma=='L') Materialize.toast('Filtro: Ver solo proyectos de Ley.',4000,'rounded');
+            if(forma=='R') Materialize.toast('Filtro: Ver solo proyectos de Resolución.',4000,'rounded');
+            if(forma=='D') Materialize.toast('Filtro: Ver solo proyectos de Declaración.',4000,'rounded');
         };
 
         $scope.cambiarOrden = function(orden){
             $scope.orden = orden;
             $scope.getProyectos();
+            if(orden=='D') Materialize.toast('Filtro: Nuevos primero.',4000,'rounded');
+            if(orden=='A') Materialize.toast('Filtro: Nuevos al último.',4000,'rounded');
         };
 
         $scope.quitarFiltros = function(){
@@ -69,28 +109,7 @@ angular
             document.getElementById('keyword').value = '';
             document.getElementById('anio').value = '';
             $scope.getProyectos();
-        };
-
-        $scope.primero = function(){
-            $scope.actualInt=1;
-            $scope.getProyectos();
-        };
-
-        $scope.anterior = function(){
-            $scope.actualInt--;
-            if($scope.actualInt<=0) $scope.actualInt = 1;
-            $scope.getProyectos();
-        };
-
-        $scope.siguiente = function(){
-            $scope.actualInt++;
-            if($scope.actualInt>$scope.ultimoInt) $scope.actualInt = $scope.ultimoInt;
-            $scope.getProyectos();
-        };
-
-        $scope.ultimo = function(){
-            $scope.actualInt = $scope.ultimoInt;
-            $scope.getProyectos();
+            Materialize.toast('Se han quitado los filtros.',4000,'rounded');
         };
 
         $scope.getProyectos = function() {
@@ -102,17 +121,10 @@ angular
                 .get(uri)
                 .success(function(json) {
                     if(json.result===true){
-                        console.log(json.rows);
-                        $scope.spinner = false;
+                        $scope.proyectos = json.rows;
+                        $scope.ultimoInt = parseInt($scope.proyectos[0].end);
+                        $scope.spinner   = false;
                     }
-                    /*if (json.result) $scope.proyectos = json.rows;
-                    $scope.endF = parseInt($scope.proyectos[0].end);
-                    $scope.prev = parseInt($scope.ini) -1;
-                    if(!$scope.prev) parseInt($scope.prev) =1;
-                    $scope.sig = parseInt($scope.ini) +1;
-                    if($scope.sig>$scope.endF) $scope.sig = parseInt($scope.endF);
-                    $scope.spinner = false;
-                    */
                 });
         };
 
